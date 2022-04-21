@@ -1,35 +1,42 @@
 <template>
   <div class="ym-bg-white">
     <div class="ym-margin-large" style="min-height: 480px">
-      <el-tree
-        ref="roleTreeRef"
-        :data="menuList"
-        :props="defaultProps"
-        node-key="path"
-        default-expand-all
-        :expand-on-click-node="false"
-        show-checkbox
-      >
-        <template #default="{ node, data }">
-          <div class="ym-flex ym-flex-jc-sb ym-flex-1">
-            <span>{{ $t(node.label) }}</span>
-            <span style="margin-right: 20px">
-              <el-icon
-                style="margin-right: 10px"
-                color="#1890ff"
-                @click="addChild(node, data)"
-                v-if="data.type !== 2"
-              >
-                <plus />
-              </el-icon>
-              <el-icon style="margin-right: 10px" color="#1890ff">
-                <edit @click="editItem(node, data)" />
-              </el-icon>
-              <el-icon color="#f56c6c"><delete /></el-icon>
-            </span>
-          </div>
-        </template>
-      </el-tree>
+      <div class="ym-margin-default-y">
+        <el-button size="small" type="primary" @click="addChild(node, data)">
+          {{ $t("buttons.add") }}
+        </el-button>
+      </div>
+      <div>
+        <el-tree
+          ref="roleTreeRef"
+          :data="menuList"
+          :props="defaultProps"
+          node-key="path"
+          default-expand-all
+          :expand-on-click-node="false"
+          show-checkbox
+        >
+          <template #default="{ node, data }">
+            <div class="ym-flex ym-flex-jc-sb ym-flex-1">
+              <span>{{ $t(node.label) }}</span>
+              <span style="margin-right: 20px">
+                <el-icon
+                  style="margin-right: 10px"
+                  color="#1890ff"
+                  @click="addChild(node, data)"
+                  v-if="data.type !== 2"
+                >
+                  <plus />
+                </el-icon>
+                <el-icon style="margin-right: 10px" color="#1890ff">
+                  <edit @click="editItem(node, data)" />
+                </el-icon>
+                <el-icon color="#f56c6c"><delete /></el-icon>
+              </span>
+            </div>
+          </template>
+        </el-tree>
+      </div>
     </div>
     <el-dialog v-model="dialogVisible" title="新增菜单" width="50%">
       <div>
@@ -46,11 +53,31 @@
               <el-radio :label="2">按钮权限</el-radio>
             </el-radio-group>
           </el-form-item>
-          <el-form-item label="菜单名" prop="label">
+          <el-form-item
+            label="按钮类型"
+            prop="buttonType"
+            v-if="menuItemForm.type === 2"
+          >
+            <el-radio-group v-model="menuItemForm.buttonType">
+              <el-radio label="add">{{ $t("buttons.add") }}</el-radio>
+              <el-radio label="edit">{{ $t("buttons.edit") }}</el-radio>
+              <el-radio label="save">{{ $t("buttons.save") }}</el-radio>
+              <el-radio label="delete">{{ $t("buttons.delete") }}</el-radio>
+            </el-radio-group>
+          </el-form-item>
+          <el-form-item label="菜单名" prop="title">
             <el-input
-              v-model="menuItemForm.label"
+              v-model="menuItemForm.title"
               placeholder="菜单名->例如：用户管理"
             />
+          </el-form-item>
+          <el-form-item label="Name" prop="name" v-if="menuItemForm.type !== 2">
+            <el-col :span="20">
+              <el-input v-model="menuItemForm.name" placeholder="Route Name" />
+            </el-col>
+            <el-col :span="4" class="ym-text-align-center">
+              <el-icon class="ym-custor-pointer"><warning /></el-icon>
+            </el-col>
           </el-form-item>
           <el-form-item label="路径" prop="path">
             <el-input v-model="menuItemForm.path" placeholder="路径" />
@@ -61,6 +88,7 @@
               <el-radio :label="false">隐藏</el-radio>
             </el-radio-group>
           </el-form-item>
+
           <el-form-item>
             <el-button @click="dialogVisible = false">取消</el-button>
             <el-button type="primary" @click="onSubmit">确定</el-button>
@@ -76,14 +104,19 @@ export default {
 };
 </script>
 <script lang="ts" setup>
-import { defineComponent, ref, reactive } from "vue";
+import { defineComponent, ref, reactive, nextTick } from "vue";
 import { useRoles, useRoutes } from "./../role/useData";
 
 const menuItemFormRef = ref();
 const menuItemFormRules = reactive({
-  label: {
+  title: {
     required: true,
     message: "label为必填项",
+    trigger: "blur"
+  },
+  name: {
+    required: true,
+    message: "name为必填项",
     trigger: "blur"
   },
   path: {
@@ -99,14 +132,20 @@ const menuItemFormRules = reactive({
   showLink: {
     required: true,
     trigger: "blur"
+  },
+  buttonType: {
+    required: true,
+    trigger: "blur"
   }
 });
 
 const menuItemForm = reactive({
-  label: "",
+  title: "",
+  name: "",
   path: "",
   type: "",
-  showLink: true
+  showLink: true,
+  buttonType: ""
 });
 const dialogVisible = ref(false);
 const defaultProps = {
@@ -117,17 +156,21 @@ const defaultProps = {
 const [menuList] = useRoutes([], () => {
   console.log(112, menuList.value);
 });
-let currentItem = null;
+const currentItem = reactive({});
 let actionType = "";
 const addChild = (node, data) => {
   actionType = "add";
   dialogVisible.value = true;
   console.log(node);
   console.log(data);
-  currentItem = data;
+  currentItem.value = data;
+  nextTick(() => {
+    menuItemFormRef.value.resetFields();
+  });
 };
 const editItem = (node, data) => {
   actionType = "edit";
+  currentItem.value = data;
 };
 const onSubmit = () => {
   menuItemFormRef.value.validate((valid, fields) => {

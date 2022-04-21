@@ -2,7 +2,7 @@ const routesData = [
   {
     title: "menus.hssysManagement",
     path: "/system",
-    name: "/system",
+    name: "system",
     type: 0,
     showLink: true,
     i18n: true,

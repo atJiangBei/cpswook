@@ -5,6 +5,20 @@
   background-color: var(--ym-white);
 }
 
+.ym-custor-pointer {
+  cursor: pointer;
+}
+
+.ym-text-align-center {
+  text-align: center;
+}
+.ym-text-align-left {
+  text-align: left;
+}
+.ym-text-align-right {
+  text-align: right;
+}
+
 .ym-flex {
   display: flex;
   &.ym-flex-jc-sb {
@@ -33,8 +47,20 @@
 .ym-margin-default {
   padding: var(--ym-margin-default);
 }
+.ym-margin-default-y {
+  padding: var(--ym-margin-default) 0;
+}
+.ym-margin-default-x {
+  padding: 0 var(--ym-margin-default);
+}
 .ym-margin-small {
   padding: var(--ym-margin-small);
+}
+.ym-margin-small-y {
+  padding: var(--ym-margin-small) 0;
+}
+.ym-margin-small-x {
+  padding: 0 var(--ym-margin-small);
 }
 
 .ym-padding-large {

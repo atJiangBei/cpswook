@@ -134,7 +134,8 @@ import {
   OfficeBuilding,
   Notebook,
   Plus,
-  Delete
+  Delete,
+  Warning
 } from "@element-plus/icons-vue";
 
 // Icon
@@ -162,7 +163,8 @@ export const iconComponents = [
   OfficeBuilding,
   Notebook,
   Plus,
-  Delete
+  Delete,
+  Warning
 ];
 
 export function useElementPlus(app: App) {

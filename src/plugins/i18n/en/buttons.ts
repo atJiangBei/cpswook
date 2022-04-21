@@ -18,5 +18,11 @@ export default {
   hscloseLeftTabs: "Close LeftTabs",
   hscloseRightTabs: "Close RightTabs",
   hscloseOtherTabs: "Close OtherTabs",
-  hscloseAllTabs: "Close AllTabs"
+  hscloseAllTabs: "Close AllTabs",
+  confirm: "Confirm",
+  cancel: "Cancel",
+  add: "Add",
+  edit: "Edit",
+  save: "Save",
+  delete: "Delete"
 };

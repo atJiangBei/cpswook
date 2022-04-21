@@ -18,5 +18,11 @@ export default {
   hscloseLeftTabs: "关闭左侧标签页",
   hscloseRightTabs: "关闭右侧标签页",
   hscloseOtherTabs: "关闭其他标签页",
-  hscloseAllTabs: "关闭全部标签页"
+  hscloseAllTabs: "关闭全部标签页",
+  confirm: "确定",
+  cancel: "取消",
+  add: "新增",
+  edit: "编辑",
+  save: "保存",
+  delete: "删除"
 };
