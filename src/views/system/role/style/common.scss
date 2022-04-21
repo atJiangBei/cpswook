@@ -9,6 +9,10 @@
   cursor: pointer;
 }
 
+.ym-border-basic {
+  border: 1px solid var(--ym-border-color-base);
+}
+
 .ym-text-align-center {
   text-align: center;
 }
@@ -69,8 +73,20 @@
 .ym-padding-default {
   padding: var(--ym-padding-default);
 }
+.ym-padding-default-y {
+  padding: var(--ym-padding-default) 0;
+}
+.ym-padding-default-x {
+  padding: 0 var(--ym-padding-default);
+}
 .ym-padding-small {
   padding: var(--ym-padding-small);
+}
+.ym-padding-small-y {
+  padding: var(--ym-padding-small) 0;
+}
+.ym-padding-small-x {
+  padding: 0 var(--ym-padding-small);
 }
 
 .ym-br-large {

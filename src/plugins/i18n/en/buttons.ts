@@ -24,5 +24,7 @@ export default {
   add: "Add",
   edit: "Edit",
   save: "Save",
-  delete: "Delete"
+  delete: "Delete",
+  search: "Search",
+  reset: "Reset"
 };
