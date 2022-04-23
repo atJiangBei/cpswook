@@ -25,7 +25,7 @@
       </el-button>
     </div>
     <div class="ym-padding-small-y">
-      <el-button type="primary" size="small" @click="onQuery">
+      <el-button type="primary" size="small" @click="onAdd">
         {{ $t("buttons.add") }}
       </el-button>
     </div>
@@ -33,7 +33,7 @@
       <el-table :data="tableData" style="width: 100%">
         <el-table-column label="number" width="180">
           <template #default="{ $index }">
-            {{ $index + 1 }}
+            {{ pageData.pageSize * (pageData.page - 1) + $index + 1 }}
           </template>
         </el-table-column>
         <el-table-column prop="id" label="id" width="180" />
@@ -56,10 +56,14 @@
         v-model:page-size="pageData.pageSize"
       />
     </div>
+    <popup-container v-model="addDialogVisible" title="Details">
+      <Details></Details>
+    </popup-container>
   </div>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
+
 export default defineComponent({
   name: "system-template"
 });
@@ -67,7 +71,9 @@ export default defineComponent({
 <script lang="ts" setup>
 import { reactive, ref } from "vue";
 import { useTableData } from "./utils";
-
+import previewData from "./preview";
+import Details from "./details/index.vue";
+import PopupContainer from "./component/popup-container";
 const searchFormRef = ref();
 const formInline = reactive({
   username: "",
@@ -88,5 +94,11 @@ const onQuery = () => {
 const resetSearchForm = () => {
   console.log(searchFormRef.value);
   searchFormRef.value.resetFields();
+};
+
+const addDialogVisible = ref(true);
+
+const onAdd = () => {
+  addDialogVisible.value = true;
 };
 </script>

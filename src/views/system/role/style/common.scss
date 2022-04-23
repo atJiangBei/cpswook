@@ -25,6 +25,9 @@
 
 .ym-flex {
   display: flex;
+  &.ym-flex-fd-column {
+    flex-direction: column;
+  }
   &.ym-flex-jc-sb {
     justify-content: space-between;
   }
@@ -33,6 +36,9 @@
   }
   &.ym-flex-jc-sa {
     justify-content: space-around;
+  }
+  &.ym-flex-ai-center {
+    align-items: center;
   }
 }
 .ym-flex-1 {
