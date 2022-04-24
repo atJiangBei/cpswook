@@ -37,6 +37,9 @@
   &.ym-flex-jc-sa {
     justify-content: space-around;
   }
+  &.ym-flex-jc-end {
+    justify-content: end;
+  }
   &.ym-flex-ai-center {
     align-items: center;
   }
@@ -55,13 +58,13 @@
   padding: 0 var(--ym-margin-large);
 }
 .ym-margin-default {
-  padding: var(--ym-margin-default);
+  margin: var(--ym-margin-default);
 }
 .ym-margin-default-y {
-  padding: var(--ym-margin-default) 0;
+  margin: var(--ym-margin-default) 0;
 }
 .ym-margin-default-x {
-  padding: 0 var(--ym-margin-default);
+  margin: 0 var(--ym-margin-default);
 }
 .ym-margin-small {
   padding: var(--ym-margin-small);

@@ -57,7 +57,7 @@
       />
     </div>
     <popup-container v-model="addDialogVisible" title="Details">
-      <Details></Details>
+      <TemplateDetails @cancel="addDialogVisible = false"></TemplateDetails>
     </popup-container>
   </div>
 </template>
@@ -72,9 +72,11 @@ export default defineComponent({
 import { reactive, ref } from "vue";
 import { useTableData } from "./utils";
 import previewData from "./preview";
-import Details from "./details/index.vue";
+import TemplateDetails from "./details/index.vue";
 import PopupContainer from "./component/popup-container";
 const searchFormRef = ref();
+
+console.log(previewData);
 const formInline = reactive({
   username: "",
   region: ""
