@@ -1,13 +1,18 @@
 <template>
   <transition name="lb-to-rt">
-    <div class="ym-popup-container ym-flex ym-flex-fd-column" v-if="modelValue">
-      <div class="ym-flex ym-flex-jc-sb ym-flex-ai-center ym-padding-default">
+    <div
+      class="ym-popup-container ym-flex ym-flex-fd-column"
+      v-show="modelValue"
+    >
+      <div class="ym-flex ym-flex-jc-sb ym-flex-ai-center ym-padding-small">
         <span class="ym-flex-1">{{ title }}</span>
         <el-icon class="ym-custor-pointer" @click="close">
           <close />
         </el-icon>
       </div>
-      <div class="flex-1 ym-padding-default">
+      <div
+        class="flex-1 ym-padding-default ym-overflow-auto ym-scrollbar-basic"
+      >
         <slot></slot>
       </div>
     </div>
@@ -15,7 +20,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref, onMounted } from "vue";
 
 export default defineComponent({
   name: "popup-container",
@@ -30,10 +35,11 @@ export default defineComponent({
       default: ""
     }
   },
-  setup(props, { emit }) {
+  setup(props, { emit, slots }) {
     const close = () => {
       emit("update:modelValue");
     };
+
     return {
       close
     };

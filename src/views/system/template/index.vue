@@ -98,7 +98,7 @@ const resetSearchForm = () => {
   searchFormRef.value.resetFields();
 };
 
-const addDialogVisible = ref(true);
+const addDialogVisible = ref(false);
 
 const onAdd = () => {
   addDialogVisible.value = true;

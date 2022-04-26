@@ -13,6 +13,20 @@
   border: 1px solid var(--ym-border-color-base);
 }
 
+.ym-overflow-auto {
+  overflow: auto;
+}
+
+.ym-scrollbar-basic {
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #999b9c;
+    border-radius: 5px;
+  }
+}
+
 .ym-text-align-center {
   text-align: center;
 }
