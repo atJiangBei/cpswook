@@ -39,5 +39,7 @@ export default {
   hsMenuTree: "Menu Tree",
   hsguide: "Guide",
   externalLink: "External Link",
-  menuManagement: "Menu management"
+  menuManagement: "Menu management",
+  bioComponent: "Bio component",
+  sequence: "Sequence"
 };
