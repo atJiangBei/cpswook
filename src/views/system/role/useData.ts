@@ -20,7 +20,7 @@ export function useRoutes(initValue = [], load: (value: any[]) => void) {
   //   routes.value = data;
   //   load?.(data);
   // });
-  getSyncRoutes().then(({ info: data }) => {
+  getSyncRoutes({ name: "admin" }).then(({ info: data }) => {
     data = JSON.parse(JSON.stringify(data));
     routes.value = data;
     load?.(data);

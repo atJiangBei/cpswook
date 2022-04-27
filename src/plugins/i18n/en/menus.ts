@@ -4,8 +4,6 @@ export default {
   hssysManagement: "System Manage",
   hsProjectGroup: "Project Group",
   hsUserManagement: "User Management",
-  hsPermissionRole: "Role Permission",
-  hsPermissionMenus: "Menus Permission",
   hsBaseinfo: "Base Info",
   hsDict: "Dict Manage",
   hseditor: "Editor",
@@ -41,5 +39,9 @@ export default {
   externalLink: "External Link",
   menuManagement: "Menu management",
   bioComponent: "Bio component",
-  sequence: "Sequence"
+  sequence: "Sequence",
+  systemManagement: "System Management",
+  permissionRole: "Role Permission",
+  menusManagement: "Menus Management",
+  templateManagement: "Template Management"
 };

@@ -1,6 +1,6 @@
 const routesData = [
   {
-    title: "menus.hssysManagement",
+    title: "menus.systemManagement",
     path: "/system",
     name: "system",
     type: 0,
@@ -8,7 +8,7 @@ const routesData = [
     i18n: true,
     children: [
       {
-        title: "menus.hsPermissionRole",
+        title: "menus.permissionRole",
         path: "/system/role/index",
         name: "system-role",
         type: 1,
@@ -24,9 +24,17 @@ const routesData = [
         ]
       },
       {
-        title: "menus.hsPermissionMenus",
+        title: "menus.menusManagement",
         path: "/system/menus/index",
         name: "system-menus",
+        type: 1,
+        showLink: true,
+        i18n: true
+      },
+      {
+        title: "menus.templateManagement",
+        path: "/system/template/index",
+        name: "system-template",
         type: 1,
         showLink: true,
         i18n: true

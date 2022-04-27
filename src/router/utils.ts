@@ -133,7 +133,6 @@ const initRouter = (name: string) => {
         usePermissionStoreHook().changeSetting(info);
       } else {
         const routes = addAsyncRoutes(info);
-        console.log(134, routes);
         routes.map((v: RouteRecordRaw) => {
           // 防止重复添加路由
           if (
@@ -152,7 +151,6 @@ const initRouter = (name: string) => {
           }
           resolve(router);
         });
-        console.log(router.options.routes);
         usePermissionStoreHook().changeSetting(info);
       }
       router.addRoute({
