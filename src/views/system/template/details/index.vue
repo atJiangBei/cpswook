@@ -38,7 +38,7 @@
                   v-for="item in templateTypeList"
                   :key="item.dicTxt"
                   :label="item.dicTxt"
-                  :value="item.dictTypeId"
+                  :value="item.dicId"
                 />
               </el-select>
             </el-form-item>
@@ -125,9 +125,14 @@
         <div>Template Details</div>
         <div>
           <div class="ym-padding-small-y">
-            <el-button type="primary" size="small">
+            <el-button
+              type="primary"
+              size="small"
+              @click="ctContainerVisible = true"
+            >
               {{ $t("buttons.add") }}
             </el-button>
+            <el-button type="info" size="small"> 预览 </el-button>
           </div>
           <div class="ym-border-basic" style="border-bottom: 0">
             <el-table :data="tableData" style="width: 100%">
@@ -137,11 +142,9 @@
                 </template>
               </el-table-column>
               <el-table-column prop="id" label="id" width="180" />
-              <el-table-column prop="statusAS" label="statusAS" width="180" />
-              <el-table-column
-                prop="creater_useridAS"
-                label="creater_useridAS"
-              />
+              <el-table-column prop="category" label="Category" width="180" />
+              <el-table-column prop="label" label="Item Name" />
+              <el-table-column prop="wdget" label="Wdget" />
               <el-table-column fixed="right" label="Operations" width="120">
                 <template #default>
                   <el-button type="text" size="small">Detail</el-button>
@@ -170,13 +173,27 @@
         </div>
       </div>
     </div>
+    <ym-popup-container
+      :inside="false"
+      title="add"
+      v-model="ctContainerVisible"
+    >
+      <create-component
+        @cancel="ctContainerVisible = false"
+        @confirm="onSaveComponent"
+      ></create-component>
+    </ym-popup-container>
   </div>
 </template>
 <script lang="ts">
 import { defineComponent, reactive, ref } from "vue";
-import { useBuCodeList, useTemplateTypeList } from "./useData";
+import { useBuCodeList, useTemplateTypeList } from "./../useData";
 import { useTableData } from "./../utils";
+import CreateComponent from "./create-component";
 export default defineComponent({
+  components: {
+    CreateComponent
+  },
   setup() {
     const basicForm = reactive({
       name: "",
@@ -243,7 +260,41 @@ export default defineComponent({
       pageSize: 10,
       total: 10
     });
-    const [tableData, search] = useTableData(pageData);
+    // const [tableData, search] = useTableData(pageData);
+    const initInfo = [
+      {
+        category: "Info",
+        wdget: "Dropdown",
+        label: "test2",
+        dropdown_table_value: "yue,no",
+        required: 1,
+        editable: 1
+      },
+      {
+        category: "Info",
+        wdget: "DateTime",
+        label: "test2",
+        dropdown_table_value: "yue,no",
+        required: 1,
+        editable: 1
+      },
+      {
+        category: "Sample Information",
+        wdget: "Table",
+        label: "Sample Information",
+        dropdown_table_value:
+          "Sample ID,Concentration(mg/mL),Volume(mL),Amount(mg)",
+        required: 1,
+        editable: 1
+      }
+    ];
+
+    const tableData = reactive(initInfo);
+    const ctContainerVisible = ref(false);
+    const onSaveComponent = componentForm => {
+      console.log(componentForm);
+      tableData.push(componentForm);
+    };
     return {
       basicForm,
       basicFormRules,
@@ -252,7 +303,9 @@ export default defineComponent({
       saveBasicInfo,
       basicFormRef,
       pageData,
-      tableData
+      tableData,
+      ctContainerVisible,
+      onSaveComponent
     };
   }
 });

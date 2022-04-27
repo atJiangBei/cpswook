@@ -26,5 +26,6 @@ export default {
   save: "Save",
   delete: "Delete",
   search: "Search",
-  reset: "Reset"
+  reset: "Reset",
+  query: "Query"
 };

@@ -26,5 +26,6 @@ export default {
   save: "保存",
   delete: "删除",
   search: "搜索",
-  reset: "重置"
+  reset: "重置",
+  query: "查询"
 };
