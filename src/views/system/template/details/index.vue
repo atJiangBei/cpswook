@@ -132,7 +132,9 @@
             >
               {{ $t("buttons.add") }}
             </el-button>
-            <el-button type="info" size="small"> 预览 </el-button>
+            <el-button type="info" size="small" @click="onPreview">
+              预览
+            </el-button>
           </div>
           <div class="ym-border-basic" style="border-bottom: 0">
             <el-table :data="tableData" style="width: 100%">
@@ -173,6 +175,7 @@
         </div>
       </div>
     </div>
+    <ym-render-template :previewData="previewData"></ym-render-template>
     <ym-popup-container
       :inside="false"
       title="add"
@@ -268,7 +271,8 @@ export default defineComponent({
         label: "test2",
         dropdown_table_value: "yue,no",
         required: 1,
-        editable: 1
+        editable: 1,
+        value: ""
       },
       {
         category: "Info",
@@ -276,7 +280,8 @@ export default defineComponent({
         label: "test2",
         dropdown_table_value: "yue,no",
         required: 1,
-        editable: 1
+        editable: 1,
+        value: ""
       },
       {
         category: "Sample Information",
@@ -285,7 +290,15 @@ export default defineComponent({
         dropdown_table_value:
           "Sample ID,Concentration(mg/mL),Volume(mL),Amount(mg)",
         required: 1,
-        editable: 1
+        editable: 1,
+        value: [
+          {
+            "Amount(mg)": "",
+            "Concentration(mg/mL)": "",
+            "Sample ID": "",
+            "Volume(mL)": ""
+          }
+        ]
       }
     ];
 
@@ -294,6 +307,35 @@ export default defineComponent({
     const onSaveComponent = componentForm => {
       console.log(componentForm);
       tableData.push(componentForm);
+    };
+    const previewData = ref([]);
+    const onPreview = () => {
+      const newArr = [];
+      tableData.forEach(item => {
+        if (!newArr.length) {
+          const firstCategory = {};
+          newArr.push(firstCategory);
+          firstCategory.category = item.category;
+          firstCategory.labelList = [item];
+          return;
+        }
+
+        const index = newArr.findIndex(
+          newItem => newItem.category === item.category
+        );
+
+        if (index === -1) {
+          const itemCategory = {};
+          newArr.push(itemCategory);
+          itemCategory.category = item.category;
+          itemCategory.labelList = [item];
+        } else {
+          const itemCategory = newArr[index];
+          itemCategory.labelList.push(item);
+        }
+      });
+      previewData.value = newArr;
+      console.log(newArr);
     };
     return {
       basicForm,
@@ -305,7 +347,9 @@ export default defineComponent({
       pageData,
       tableData,
       ctContainerVisible,
-      onSaveComponent
+      onSaveComponent,
+      onPreview,
+      previewData
     };
   }
 });

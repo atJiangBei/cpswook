@@ -51,7 +51,8 @@ import {
   ElTableColumn,
   ElSelect,
   ElOption,
-  ElTree
+  ElTree,
+  ElDatePicker
 } from "element-plus";
 
 // Directives
@@ -106,7 +107,8 @@ const components = [
   ElTableColumn,
   ElSelect,
   ElOption,
-  ElTree
+  ElTree,
+  ElDatePicker
 ];
 
 // https://element-plus.org/zh-CN/component/icon.html
