@@ -1,13 +1,17 @@
 import Cookies from "js-cookie";
 import { useUserStoreHook } from "/@/store/modules/user";
+// import { LOGIN_API } from "../api/user";
 
 const TokenKey = "authorized-token";
 
-type paramsMapType = {
-  name: string;
+export type ParamsMapType = {
   expires: number;
   accessToken: string;
 };
+
+// token白名单，不需要带token即可访问
+// const TOKEN_WHITE_LIST = [LOGIN_API];
+// export { TOKEN_WHITE_LIST };
 
 // 获取token
 export function getToken() {
@@ -18,16 +22,16 @@ export function getToken() {
 // 设置token以及过期时间（cookies、sessionStorage各一份）
 // 后端需要将用户信息和token以及过期时间都返回给前端，过期时间主要用于刷新token
 export function setToken(data) {
-  const { accessToken, expires, name } = data;
+  const { access_token: accessToken, expires_in: expires } = data;
   // 提取关键信息进行存储
-  const paramsMap: paramsMapType = {
-    name,
+  const paramsMap: ParamsMapType = {
+    // name,
     expires: Date.now() + parseInt(expires),
     accessToken
   };
   const dataString = JSON.stringify(paramsMap);
   useUserStoreHook().SET_TOKEN(accessToken);
-  useUserStoreHook().SET_NAME(name);
+  // useUserStoreHook().SET_NAME(name);
   expires > 0
     ? Cookies.set(TokenKey, dataString, {
         expires: expires / 86400000
@@ -40,4 +44,9 @@ export function setToken(data) {
 export function removeToken() {
   Cookies.remove(TokenKey);
   sessionStorage.removeItem(TokenKey);
+}
+
+export function isTokenExpired(expires: number) {
+  const now = new Date().getTime();
+  return parseInt(expires) - now <= 0;
 }

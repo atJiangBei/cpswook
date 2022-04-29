@@ -40,6 +40,8 @@ export default {
   hsguide: "引导页",
   externalLink: "外链",
   menuManagement: "菜单管理",
+  bioComponent: "生物组件",
+  sequence: "基因序列",
   systemManagement: "系统管理",
   permissionRole: "角色权限",
   menusManagement: "菜单管理",

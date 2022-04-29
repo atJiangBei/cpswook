@@ -22,10 +22,10 @@
     "paths": {
       "/@/*": ["src/*"],
       "@build/*": ["build/*"],
-      "/#/*": ["types/*"]
+      "/#/*": ["types/*"],
+      "seqviz-umd": ["node_modules/seqviz/dist/seqviz.min.js"]
     },
-    "types": ["node", "vite/client", "element-plus/global"],
-    "typeRoots": ["./node_modules/@types/", "./types"]
+    "typeRoots": ["./node_modules/@types/", "./types/"]
   },
   "include": [
     "src/**/*.ts",

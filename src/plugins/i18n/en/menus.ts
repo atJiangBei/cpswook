@@ -38,6 +38,8 @@ export default {
   hsguide: "Guide",
   externalLink: "External Link",
   menuManagement: "Menu management",
+  bioComponent: "Bio component",
+  sequence: "Sequence",
   systemManagement: "System Management",
   permissionRole: "Role Permission",
   menusManagement: "Menus Management",

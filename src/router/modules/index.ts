@@ -10,6 +10,7 @@ import flowChartRouter from "./flowchart";
 import remainingRouter from "./remaining";
 import componentsRouter from "./components";
 import systemRouter from "./system";
+import bioRouter from "./bio";
 import { RouteRecordRaw, RouteComponent } from "vue-router";
 
 import {
@@ -22,7 +23,8 @@ import {
 const routes = [
   homeRouter,
   //systemRouter,
-  errorRouter
+  errorRouter,
+  bioRouter
   // guideRouter,
   //nestedRouter
   // externalLink,
