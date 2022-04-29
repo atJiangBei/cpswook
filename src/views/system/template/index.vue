@@ -43,16 +43,17 @@
             style="width: 150px"
           ></el-input>
         </el-form-item>
+        <el-form-item>
+          <el-button type="primary" size="small" @click="onQuery">
+            {{ $t("buttons.search") }}
+          </el-button>
+          <el-button size="small" @click="resetSearchForm">
+            {{ $t("buttons.reset") }}
+          </el-button>
+        </el-form-item>
       </el-form>
     </div>
-    <div class="ym-padding-small-y">
-      <el-button type="primary" size="small" @click="onQuery">
-        {{ $t("buttons.search") }}
-      </el-button>
-      <el-button size="small" @click="resetSearchForm">
-        {{ $t("buttons.reset") }}
-      </el-button>
-    </div>
+
     <div class="ym-padding-small-y">
       <el-button type="primary" size="small" @click="onAdd">
         {{ $t("buttons.add") }}
@@ -139,7 +140,7 @@ const resetSearchForm = () => {
   searchFormRef.value.resetFields();
 };
 
-const addDialogVisible = ref(true);
+const addDialogVisible = ref(false);
 
 const onAdd = () => {
   addDialogVisible.value = true;
