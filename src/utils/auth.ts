@@ -22,11 +22,13 @@ export function getToken() {
 // 设置token以及过期时间（cookies、sessionStorage各一份）
 // 后端需要将用户信息和token以及过期时间都返回给前端，过期时间主要用于刷新token
 export function setToken(data) {
-  const { access_token: accessToken, expires_in: expires } = data;
+  const { access_token: accessToken } = data;
+  let expires = data.expires_in;
+  expires *= 1000;
   // 提取关键信息进行存储
   const paramsMap: ParamsMapType = {
     // name,
-    expires: Date.now() + parseInt(expires * 1000),
+    expires: Date.now() + parseInt(expires),
     accessToken
   };
   const dataString = JSON.stringify(paramsMap);
