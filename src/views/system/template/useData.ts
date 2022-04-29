@@ -226,3 +226,186 @@ export function useTemplateTypeList() {
   list.value = templateTypeList;
   return [list];
 }
+
+const componentTypeList = [
+  {
+    dicDesc: "Checkbox",
+    itemId: "20003249",
+    dictTypeId: "751",
+    itemCode: "Checkbox",
+    dicTxt: "Checkbox",
+    dicId: "Checkbox"
+  },
+  {
+    dicDesc: "",
+    itemId: "300031615",
+    dictTypeId: "751",
+    dicTxt: "Checkbox Dropdown",
+    dicId: "checkbox_dropdown"
+  },
+  {
+    dicDesc: "",
+    itemId: "300032166",
+    dictTypeId: "751",
+    dicTxt: "Checkbox Dropdown With Group",
+    dicId: "checkbox_dropdown_with_group"
+  },
+  {
+    dicDesc: "",
+    itemId: "300031616",
+    dictTypeId: "751",
+    itemCode: "checkbox_system_dropdown",
+    dicTxt: "Checkbox System Dropdown",
+    dicId: "checkbox_system_dropdown"
+  },
+  {
+    dicDesc: "",
+    itemId: "200031427",
+    dictTypeId: "751",
+    itemCode: "customize_table",
+    dicTxt: "Customize Table",
+    dicId: "customize_table"
+  },
+  {
+    dicDesc: "",
+    itemId: "20002930",
+    dictTypeId: "751",
+    dicTxt: "Date",
+    dicId: "Date"
+  },
+  {
+    dicDesc: "",
+    itemId: "200031443",
+    dictTypeId: "751",
+    itemCode: "DateTime",
+    dicTxt: "DateTime",
+    dicId: "DateTime"
+  },
+  {
+    dicDesc: "",
+    itemId: "300031762",
+    dictTypeId: "751",
+    dicTxt: "div",
+    dicId: "div"
+  },
+  {
+    dicDesc: "",
+    itemId: "20002920",
+    dictTypeId: "751",
+    dicTxt: "Dropdown",
+    dicId: "Dropdown"
+  },
+  {
+    dicDesc: "",
+    itemId: "20002944",
+    dictTypeId: "751",
+    dicTxt: "Dynamic table",
+    dicId: "dynamic_table"
+  },
+  {
+    dicDesc: "",
+    itemId: "20002921",
+    dictTypeId: "751",
+    dicTxt: "File",
+    dicId: "File"
+  },
+  {
+    dicDesc: "",
+    itemId: "200031426",
+    dictTypeId: "751",
+    itemCode: "fix_row_table",
+    dicTxt: "Fix Row Table",
+    dicId: "fix_row_table"
+  },
+  {
+    dicDesc: "",
+    itemId: "20002927",
+    dictTypeId: "751",
+    dicTxt: "Formula",
+    dicId: "Formula"
+  },
+  {
+    dicDesc: "Hidden",
+    itemId: "200031350",
+    dictTypeId: "751",
+    itemCode: "Hidden",
+    dicTxt: "Hidden",
+    dicId: "Hidden"
+  },
+  {
+    dicDesc: "",
+    itemId: "300032451",
+    dictTypeId: "751",
+    dicTxt: "img",
+    dicId: "img"
+  },
+  {
+    dicDesc: "",
+    itemId: "300031701",
+    dictTypeId: "751",
+    dicTxt: "Label",
+    dicId: "Label"
+  },
+  {
+    dicDesc: "",
+    itemId: "20002983",
+    dictTypeId: "751",
+    dicTxt: "Link",
+    dicId: "Link"
+  },
+  {
+    dicDesc: "",
+    itemId: "20002950",
+    dictTypeId: "751",
+    dicTxt: "Linkage dropdown",
+    dicId: "Linkage_dropdown"
+  },
+  {
+    dicDesc: "",
+    itemId: "20002919",
+    dictTypeId: "751",
+    dicTxt: "Number",
+    dicId: "Number"
+  },
+  {
+    dicDesc: "",
+    itemId: "300032064",
+    dictTypeId: "751",
+    dicTxt: "Search Dropdown",
+    dicId: "search_dropdown"
+  },
+  {
+    dicDesc: "",
+    itemId: "20002951",
+    dictTypeId: "751",
+    dicTxt: "System Dropdown",
+    dicId: "system_dropdown"
+  },
+  {
+    dicDesc: "",
+    itemId: "20002926",
+    dictTypeId: "751",
+    dicTxt: "Table",
+    dicId: "Table"
+  },
+  {
+    dicDesc: "",
+    itemId: "20002918",
+    dictTypeId: "751",
+    dicTxt: "Text",
+    dicId: "Text"
+  },
+  {
+    dicDesc: "",
+    itemId: "20003074",
+    dictTypeId: "751",
+    dicTxt: "Textarea",
+    dicId: "Textarea"
+  }
+];
+
+export function useComponentTypeList() {
+  const list = ref([]);
+  list.value = componentTypeList;
+  return [list];
+}

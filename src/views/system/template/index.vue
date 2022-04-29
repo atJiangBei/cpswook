@@ -1,19 +1,48 @@
 <template>
   <div class="ym-padding-large ym-bg-white">
     <div>
-      <el-form :inline="true" :model="formInline" ref="searchFormRef">
-        <el-form-item label="roleName" prop="username">
-          <el-input v-model="formInline.username" placeholder="Approved by" />
+      <el-form
+        :inline="true"
+        label-width="100px"
+        size="small"
+        :model="searchForm"
+        ref="searchFormRef"
+      >
+        <el-form-item prop="name" label="Template Name">
+          <el-input v-model="searchForm.name" style="width: 150px"></el-input>
         </el-form-item>
-        <!-- <el-form-item :label="$tl('label.other')">
-              <el-select
-                v-model="formInline.region"
-                placeholder="Activity zone"
-              >
-                <el-option label="Zone one" value="shanghai" />
-                <el-option label="Zone two" value="beijing" />
-              </el-select>
-            </el-form-item> -->
+        <el-form-item prop="bu_code" label="Bu Code">
+          <el-select style="width: 150px" v-model="searchForm.bu_code">
+            <el-option
+              v-for="item in buCodeList"
+              :key="item.dicId"
+              :label="item.dicTxt"
+              :value="item.dicId"
+            />
+          </el-select>
+        </el-form-item>
+        <el-form-item prop="type" label="Template Type">
+          <el-select style="width: 150px" v-model="searchForm.type">
+            <el-option
+              v-for="item in templateTypeList"
+              :key="item.dicTxt"
+              :label="item.dicTxt"
+              :value="item.dicId"
+            />
+          </el-select>
+        </el-form-item>
+        <el-form-item prop="status" label="Status">
+          <el-select style="width: 150px" v-model="searchForm.status">
+            <el-option label="Open" value="open" />
+            <el-option label="Close" value="close" />
+          </el-select>
+        </el-form-item>
+        <el-form-item prop="version" label="Version">
+          <el-input
+            v-model="searchForm.version"
+            style="width: 150px"
+          ></el-input>
+        </el-form-item>
       </el-form>
     </div>
     <div class="ym-padding-small-y">
@@ -74,12 +103,20 @@ import { useTableData } from "./utils";
 import previewData from "./preview";
 import TemplateDetails from "./details/index.vue";
 import PopupContainer from "./component/popup-container";
+import { useBuCodeList, useTemplateTypeList } from "./useData";
+import { http } from "/@/utils/http";
+import axios from "axios";
+
+console.log(http);
 const searchFormRef = ref();
 
 console.log(previewData);
-const formInline = reactive({
-  username: "",
-  region: ""
+const searchForm = reactive({
+  name: "",
+  bu_code: "",
+  type: "",
+  status: "",
+  version: ""
 });
 const pageData = reactive({
   page: 1,
@@ -90,7 +127,11 @@ const pageData = reactive({
 const [tableData, search] = useTableData(pageData);
 
 const onQuery = () => {
-  search();
+  http.get("/api/searchList", {
+    params: { name: "ZhangSan", age: 45, info: { basic: "123" } }
+  });
+  http.post("/api/searchList", { data: { name: "ZhangSan", age: 2 } });
+  //search();
 };
 
 const resetSearchForm = () => {
@@ -98,9 +139,11 @@ const resetSearchForm = () => {
   searchFormRef.value.resetFields();
 };
 
-const addDialogVisible = ref(false);
+const addDialogVisible = ref(true);
 
 const onAdd = () => {
   addDialogVisible.value = true;
 };
+const [buCodeList] = useBuCodeList();
+const [templateTypeList] = useTemplateTypeList();
 </script>

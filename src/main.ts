@@ -9,7 +9,7 @@ import { useTable } from "../src/plugins/vxe-table";
 import { useFontawesome } from "../src/plugins/fontawesome";
 import { useElementPlus } from "../src/plugins/element-plus";
 import { injectResponsiveStorage } from "/@/utils/storage/responsive";
-
+import CommonComponents from "/@/components";
 import "animate.css";
 import "virtual:windi.css";
 // 导入公共样式
@@ -38,6 +38,7 @@ getServerConfig(app).then(async config => {
     .use(useElementPlus)
     .use(useTable)
     .use(usI18n)
+    .use(CommonComponents)
     .use(useFontawesome);
   await router.isReady();
   app.mount("#app");

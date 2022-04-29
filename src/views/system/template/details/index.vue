@@ -38,7 +38,7 @@
                   v-for="item in templateTypeList"
                   :key="item.dicTxt"
                   :label="item.dicTxt"
-                  :value="item.dictTypeId"
+                  :value="item.dicId"
                 />
               </el-select>
             </el-form-item>
@@ -125,8 +125,15 @@
         <div>Template Details</div>
         <div>
           <div class="ym-padding-small-y">
-            <el-button type="primary" size="small">
+            <el-button
+              type="primary"
+              size="small"
+              @click="ctContainerVisible = true"
+            >
               {{ $t("buttons.add") }}
+            </el-button>
+            <el-button type="info" size="small" @click="onPreview">
+              预览
             </el-button>
           </div>
           <div class="ym-border-basic" style="border-bottom: 0">
@@ -137,11 +144,9 @@
                 </template>
               </el-table-column>
               <el-table-column prop="id" label="id" width="180" />
-              <el-table-column prop="statusAS" label="statusAS" width="180" />
-              <el-table-column
-                prop="creater_useridAS"
-                label="creater_useridAS"
-              />
+              <el-table-column prop="category" label="Category" width="180" />
+              <el-table-column prop="label" label="Item Name" />
+              <el-table-column prop="wdget" label="Wdget" />
               <el-table-column fixed="right" label="Operations" width="120">
                 <template #default>
                   <el-button type="text" size="small">Detail</el-button>
@@ -170,13 +175,28 @@
         </div>
       </div>
     </div>
+    <ym-render-template :previewData="previewData"></ym-render-template>
+    <ym-popup-container
+      :inside="false"
+      title="add"
+      v-model="ctContainerVisible"
+    >
+      <create-component
+        @cancel="ctContainerVisible = false"
+        @confirm="onSaveComponent"
+      ></create-component>
+    </ym-popup-container>
   </div>
 </template>
 <script lang="ts">
 import { defineComponent, reactive, ref } from "vue";
-import { useBuCodeList, useTemplateTypeList } from "./useData";
+import { useBuCodeList, useTemplateTypeList } from "./../useData";
 import { useTableData } from "./../utils";
+import CreateComponent from "./create-component";
 export default defineComponent({
+  components: {
+    CreateComponent
+  },
   setup() {
     const basicForm = reactive({
       name: "",
@@ -243,7 +263,80 @@ export default defineComponent({
       pageSize: 10,
       total: 10
     });
-    const [tableData, search] = useTableData(pageData);
+    // const [tableData, search] = useTableData(pageData);
+    const initInfo = [
+      {
+        category: "Info",
+        wdget: "Dropdown",
+        label: "test2",
+        dropdown_table_value: "yue,no",
+        required: 1,
+        editable: 1,
+        value: ""
+      },
+      {
+        category: "Info",
+        wdget: "DateTime",
+        label: "test2",
+        dropdown_table_value: "yue,no",
+        required: 1,
+        editable: 1,
+        value: ""
+      },
+      {
+        category: "Sample Information",
+        wdget: "Table",
+        label: "Sample Information",
+        dropdown_table_value:
+          "Sample ID,Concentration(mg/mL),Volume(mL),Amount(mg)",
+        required: 1,
+        editable: 1,
+        value: [
+          {
+            "Amount(mg)": "",
+            "Concentration(mg/mL)": "",
+            "Sample ID": "",
+            "Volume(mL)": ""
+          }
+        ]
+      }
+    ];
+
+    const tableData = reactive(initInfo);
+    const ctContainerVisible = ref(false);
+    const onSaveComponent = componentForm => {
+      console.log(componentForm);
+      tableData.push(componentForm);
+    };
+    const previewData = ref([]);
+    const onPreview = () => {
+      const newArr = [];
+      tableData.forEach(item => {
+        if (!newArr.length) {
+          const firstCategory = {};
+          newArr.push(firstCategory);
+          firstCategory.category = item.category;
+          firstCategory.labelList = [item];
+          return;
+        }
+
+        const index = newArr.findIndex(
+          newItem => newItem.category === item.category
+        );
+
+        if (index === -1) {
+          const itemCategory = {};
+          newArr.push(itemCategory);
+          itemCategory.category = item.category;
+          itemCategory.labelList = [item];
+        } else {
+          const itemCategory = newArr[index];
+          itemCategory.labelList.push(item);
+        }
+      });
+      previewData.value = newArr;
+      console.log(newArr);
+    };
     return {
       basicForm,
       basicFormRules,
@@ -252,7 +345,11 @@ export default defineComponent({
       saveBasicInfo,
       basicFormRef,
       pageData,
-      tableData
+      tableData,
+      ctContainerVisible,
+      onSaveComponent,
+      onPreview,
+      previewData
     };
   }
 });
