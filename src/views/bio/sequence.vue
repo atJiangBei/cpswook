@@ -1,6 +1,8 @@
 <script setup lang="ts">
-// import { ref } from "vue";
+import { ref } from "vue";
 import SequenceViewer from "../components/sequence-viewer/index.vue";
+import { getPlasmidList } from "/@/api/plasmid";
+import { getTestData } from "/@/api/test";
 
 const options = {
   name: "L09136",
@@ -103,6 +105,17 @@ const tableData = [
     address: "No. 189, Grove St, Los Angeles"
   }
 ];
+
+const plasmidList = ref([]);
+const queryData = async () => {
+  // plasmidList.value = await getPlasmidList();
+};
+getTestData({
+  is_del: 0,
+  limit: 50,
+  page: 1
+});
+queryData();
 </script>
 
 <template>

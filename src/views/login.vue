@@ -13,6 +13,7 @@ import illustration3 from "/@/assets/login/illustration3.svg";
 import illustration4 from "/@/assets/login/illustration4.svg";
 import illustration5 from "/@/assets/login/illustration5.svg";
 import illustration6 from "/@/assets/login/illustration6.svg";
+import { useUserStore } from "/@/store/modules/user";
 
 const router = useRouter();
 
@@ -38,12 +39,17 @@ const currentWeek = computed(() => {
   }
 });
 
-let user = ref("admin");
+let user = ref("jiao_qiangqiang0101");
 let pwd = ref("123456");
 
-const onLogin = (): void => {
+const onLogin = async (): Promise<void> => {
+  await useUserStore().loginByUsername({
+    username: user.value,
+    password: pwd.value,
+    ad: 0
+  });
   storageSession.setItem("info", {
-    username: "admin",
+    username: "jiao_qiangqiang0101",
     accessToken: "eyJhbGciOiJIUzUxMiJ9.test"
   });
   initRouter("admin").then(() => {});
