@@ -26,7 +26,7 @@ export function setToken(data) {
   // 提取关键信息进行存储
   const paramsMap: ParamsMapType = {
     // name,
-    expires: Date.now() + parseInt(expires),
+    expires: Date.now() + parseInt(expires * 1000),
     accessToken
   };
   const dataString = JSON.stringify(paramsMap);
