@@ -1,12 +1,18 @@
 import { ref } from "vue";
 import { getAllRoutes, getRoles } from "./api.role";
 import { getSyncRoutes } from "/@/api/global";
+import { getRoleList } from "/@/api/system/role";
 
 export function useRoles(initValue = [], load: (value: any[]) => void) {
   const roles = ref(initValue);
-  getRoles().then(list => {
-    roles.value = list;
-    load?.(list);
+  // getRoles().then(list => {
+  //   roles.value = list;
+  //   load?.(list);
+  // });
+  getRoleList().then((res: any) => {
+    const { data } = res;
+    roles.value = data.data;
+    console.log(res);
   });
   const setRoles = value => {
     roles.value = value;

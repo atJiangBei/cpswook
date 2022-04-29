@@ -23,17 +23,17 @@ const bioRouter = {
         i18n: true,
         showLink: true
       }
-    },
-    {
-      path: "/bio/protein",
-      name: "protein",
-      component: () => import("/@/views/bio/protein.vue"),
-      meta: {
-        title: $t("menus.protein"),
-        i18n: true,
-        showLink: true
-      }
     }
+    // {
+    //   path: "/bio/protein",
+    //   name: "protein",
+    //   component: () => import("/@/views/bio/protein.vue"),
+    //   meta: {
+    //     title: $t("menus.protein"),
+    //     i18n: true,
+    //     showLink: true
+    //   }
+    // }
   ]
 };
 

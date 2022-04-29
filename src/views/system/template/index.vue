@@ -108,7 +108,6 @@ import { useBuCodeList, useTemplateTypeList } from "./useData";
 import { http } from "/@/utils/http";
 import axios from "axios";
 
-console.log(http);
 const searchFormRef = ref();
 
 console.log(previewData);
@@ -128,11 +127,7 @@ const pageData = reactive({
 const [tableData, search] = useTableData(pageData);
 
 const onQuery = () => {
-  http.get("/api/searchList", {
-    params: { name: "ZhangSan", age: 45, info: { basic: "123" } }
-  });
-  http.post("/api/searchList", { data: { name: "ZhangSan", age: 2 } });
-  //search();
+  search();
 };
 
 const resetSearchForm = () => {

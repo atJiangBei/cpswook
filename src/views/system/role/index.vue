@@ -105,6 +105,10 @@ import { ref, reactive, nextTick, onActivated, onUnmounted } from "vue";
 import { useRoles, useRoutes } from "./useData";
 
 import { generateTree, deepClone } from "./utils";
+import { getRoleList } from "/@/api/system/role";
+getRoleList().then(res => {
+  console.log(res);
+});
 const routePath = useRoute().path;
 console.log(routePath);
 
