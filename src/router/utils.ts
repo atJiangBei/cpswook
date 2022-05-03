@@ -136,9 +136,8 @@ const initRouter = (name: string) => {
         routes.map((v: RouteRecordRaw) => {
           // 防止重复添加路由
           if (
-            router.options.routes[0].children.findIndex(
-              value => value.path === v.path
-            ) !== -1
+            router.options.routes.findIndex(value => value.path === v.path) !==
+            -1
           ) {
             return;
           } else {
@@ -146,7 +145,7 @@ const initRouter = (name: string) => {
             //router.options.routes[0].children.push(v);
             router.options.routes.push(v);
             // 最终路由进行升序
-            ascending(router.options.routes[0].children);
+            //ascending(router.options.routes[0].children);
             if (!router.hasRoute(v?.name)) router.addRoute(v);
           }
           resolve(router);
@@ -260,19 +259,6 @@ const addAsyncRoutes = (arrRoutes: Array<RouteRecordRaw>) => {
     route.children = transformChildren(route.children);
   }
   return arrRoutes;
-  const newArr = [];
-  const transform = arrRoutes => {
-    for (let i = 0; i < arrRoutes.length; i++) {
-      const route = arrRoutes[i];
-      newArr.push(route);
-      if (route.children && route.children.length) {
-        transform(route.children);
-      }
-    }
-  };
-  transform(arrRoutes);
-
-  return newArr;
 };
 
 // 获取路由历史模式 https://next.router.vuejs.org/zh/guide/essentials/history-mode.html
