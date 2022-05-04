@@ -42,6 +42,8 @@ export default {
   menuManagement: "菜单管理",
   bioComponent: "生物组件",
   sequence: "基因序列",
+  nebula: "nebula",
+  test: "测试",
   systemManagement: "系统管理",
   permissionRole: "角色权限",
   menusManagement: "菜单管理",

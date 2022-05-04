@@ -40,6 +40,8 @@ export default {
   menuManagement: "Menu management",
   bioComponent: "Bio component",
   sequence: "Sequence",
+  nebula: "nebula",
+  test: "test",
   systemManagement: "System Management",
   permissionRole: "Role Permission",
   menusManagement: "Menus Management",
