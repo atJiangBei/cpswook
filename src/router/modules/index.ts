@@ -11,7 +11,7 @@ import remainingRouter from "./remaining";
 import componentsRouter from "./components";
 import systemRouter from "./system";
 import bioRouter from "./bio";
-import nebulaRouter from "./nebula";
+// import nebulaRouter from "./nebula";
 import { RouteRecordRaw, RouteComponent } from "vue-router";
 
 import {
@@ -23,9 +23,9 @@ import {
 // 原始静态路由（未做任何处理）
 const routes = [
   homeRouter,
+  // nebulaRouter,
   //systemRouter,
   errorRouter,
-  nebulaRouter,
   bioRouter
   // guideRouter,
   //nestedRouter

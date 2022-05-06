@@ -5,7 +5,7 @@
       placeholder="Type An Entity, then Enter"
       v-on:keyup.enter="submit"
     />
-    <network
+    <!-- <network
       :nodeList="nodes"
       :linkList="relationships"
       :nodeSize="nodeSize"
@@ -19,12 +19,12 @@
       :showNodeText="showNodeText"
       :showLinkText="showLinkText"
     >
-    </network>
+    </network> -->
   </div>
 </template>
 
 <script lang="ts">
-import Network from "/@/components/vue-network-d3";
+// import Network from "/@/components/vue-network-d3";
 import axios from "axios";
 
 export default {
