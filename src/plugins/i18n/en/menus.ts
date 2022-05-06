@@ -41,6 +41,8 @@ export default {
   bioComponent: "Bio component",
   sequence: "Sequence",
   nebula: "nebula",
+  bpmn: "bpmn",
+  bpmnList: "Bpmn List",
   test: "test",
   systemManagement: "System Management",
   permissionRole: "Role Permission",

@@ -43,6 +43,8 @@ export default {
   bioComponent: "生物组件",
   sequence: "基因序列",
   nebula: "nebula",
+  bpmn: "Bpmn",
+  bpmnList: "Bpmn List",
   test: "测试",
   systemManagement: "系统管理",
   permissionRole: "角色权限",

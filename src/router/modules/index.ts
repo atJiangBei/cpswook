@@ -11,6 +11,7 @@ import remainingRouter from "./remaining";
 import componentsRouter from "./components";
 import systemRouter from "./system";
 import bioRouter from "./bio";
+import bpmnRouter from "./bpmn";
 // import nebulaRouter from "./nebula";
 import { RouteRecordRaw, RouteComponent } from "vue-router";
 
@@ -25,6 +26,7 @@ const routes = [
   homeRouter,
   // nebulaRouter,
   //systemRouter,
+  bpmnRouter,
   errorRouter,
   bioRouter
   // guideRouter,
