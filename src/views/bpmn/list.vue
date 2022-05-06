@@ -25,5 +25,5 @@ const tableData = [
 ];
 const onEdit = item => {
   window.open(`http://localhost:8100/?process_id=${item.id}`);
-}
+};
 </script>
