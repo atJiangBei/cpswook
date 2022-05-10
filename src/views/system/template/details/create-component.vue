@@ -33,6 +33,12 @@
             style="width: 150px"
           ></el-input>
         </el-form-item>
+        <el-form-item prop="newLine" label="New Line">
+          <el-select style="width: 150px" v-model="componentForm.newLine">
+            <el-option label="Yes" :value="true" />
+            <el-option label="no" :value="false" />
+          </el-select>
+        </el-form-item>
         <el-form-item prop="value" label="Item Value">
           <el-input
             v-model="componentForm.value"
@@ -86,6 +92,7 @@ export default defineComponent({
       label: "",
       sort: "",
       unit: "",
+      newLine: true,
       value: "",
       wdget: "",
       dropdown_table_value: "",

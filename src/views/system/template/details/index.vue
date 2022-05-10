@@ -306,7 +306,7 @@ export default defineComponent({
         category: "Info",
         wdget: "DateTime",
         label: "Start Time",
-        dropdown_table_value: "yue,no",
+        dropdown_table_value: "yes,no",
         required: 1,
         editable: 1,
         value: "",
@@ -316,7 +316,7 @@ export default defineComponent({
         category: "Info",
         wdget: "Date",
         label: "Start Date",
-        dropdown_table_value: "yue,no",
+        dropdown_table_value: "yes,no",
         required: 1,
         editable: 1,
         value: "",
@@ -436,7 +436,7 @@ export default defineComponent({
       previewVisible.value = true;
       console.log(newArr);
     };
-    onPreview();
+    //onPreview();
     return {
       basicForm,
       basicFormRules,

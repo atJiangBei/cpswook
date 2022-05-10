@@ -19,7 +19,7 @@ import "./assets/iconfont/iconfont.js";
 import "./assets/iconfont/iconfont.css";
 import "v-contextmenu/dist/themes/default.css";
 
-import "/@/views/system/role/style";
+import "/@/style/common/index";
 
 const app = createApp(App);
 
