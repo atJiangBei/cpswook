@@ -13,10 +13,18 @@ export type ParamsMapType = {
 // const TOKEN_WHITE_LIST = [LOGIN_API];
 // export { TOKEN_WHITE_LIST };
 
-// 获取token
+// 获取token对象
 export function getToken() {
   // 此处与TokenKey相同，此写法解决初始化时Cookies中不存在TokenKey报错
   return Cookies.get("authorized-token");
+}
+
+// 获取token串
+export function getTokenStr(): string {
+  const tokenObjStr = getToken();
+  if (!tokenObjStr) return "";
+  const tokenObj: ParamsMapType = JSON.parse(tokenObjStr);
+  return tokenObj?.accessToken;
 }
 
 // 设置token以及过期时间（cookies、sessionStorage各一份）

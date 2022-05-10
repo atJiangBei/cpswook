@@ -13,7 +13,19 @@
 </template>
 
 <script setup lang="ts">
-const tableData = [
+import { getProcessList } from "/@/api/bpmn";
+import { getTokenStr } from "/@/utils/auth";
+import { href } from "/@/utils/href";
+// import { useRouter } from "vue-router";
+
+// const router = useRouter();
+
+interface Process {
+  id: string;
+  name: string;
+}
+
+const tableData: Process[] = [
   {
     id: "1",
     name: "process1"
@@ -23,7 +35,16 @@ const tableData = [
     name: "process2"
   }
 ];
-const onEdit = item => {
-  window.open(`http://localhost:8100/?process_id=${item.id}`);
+getProcessList();
+const onEdit = (item: Process) => {
+  const token = getTokenStr();
+  href.open({
+    url: "http://localhost:8100/",
+    query: {
+      process_id: item.id,
+      token
+    }
+  });
+  // window.open(`http://localhost:8100/?process_id=${item.id}&token=${token}`);
 };
 </script>
