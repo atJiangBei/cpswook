@@ -88,7 +88,7 @@ class PureHttp {
               return $config;
             }
           } else {
-            useUserStoreHook().logOut();
+            // useUserStoreHook().logOut();
             return $config;
           }
         } else {
