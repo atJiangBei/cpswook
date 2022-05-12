@@ -175,7 +175,14 @@
         </div>
       </div>
     </div>
-    <ym-render-template :previewData="previewData"></ym-render-template>
+    <!-- <ym-render-template :previewData="previewData"></ym-render-template> -->
+    <ym-popup-container
+      :inside="false"
+      title="preview"
+      v-model="previewVisible"
+    >
+      <ym-render-template :previewData="previewData"></ym-render-template>
+    </ym-popup-container>
     <ym-popup-container
       :inside="false"
       title="add"
@@ -267,41 +274,132 @@ export default defineComponent({
     const initInfo = [
       {
         category: "Info",
-        wdget: "Dropdown",
-        label: "test2",
-        dropdown_table_value: "yue,no",
+        wdget: "Input",
+        label: "Input",
+        dropdown_table_value: "",
         required: 1,
         editable: 1,
-        value: ""
+        value: "",
+        newLine: true
+      },
+      {
+        category: "Info",
+        wdget: "Textarea",
+        label: "Textarea",
+        dropdown_table_value: "",
+        required: 1,
+        editable: 1,
+        value: "",
+        newLine: true
+      },
+      {
+        category: "Info",
+        wdget: "Select",
+        label: "Select",
+        dropdown_table_value: "yes,no",
+        required: 1,
+        editable: 1,
+        value: "",
+        newLine: false
       },
       {
         category: "Info",
         wdget: "DateTime",
-        label: "test2",
-        dropdown_table_value: "yue,no",
+        label: "Start Time",
+        dropdown_table_value: "yes,no",
         required: 1,
         editable: 1,
-        value: ""
+        value: "",
+        newLine: false
+      },
+      {
+        category: "Info",
+        wdget: "Date",
+        label: "Start Date",
+        dropdown_table_value: "yes,no",
+        required: 1,
+        editable: 1,
+        value: "",
+        newLine: false
+      },
+      {
+        category: "Info",
+        wdget: "Checkbox",
+        label: "Type",
+        dropdown_table_value: "a,b",
+        required: 1,
+        editable: 1,
+        value: [],
+        newLine: true
+      },
+      {
+        category: "Info",
+        wdget: "Number",
+        label: "Input Number",
+        dropdown_table_value: "",
+        required: 1,
+        editable: 1,
+        value: 0,
+        newLine: true
+      },
+      {
+        category: "Info",
+        wdget: "Radio",
+        label: "Radio",
+        dropdown_table_value: "a,b,c",
+        required: 1,
+        editable: 1,
+        value: "",
+        newLine: true
+      },
+      {
+        category: "Info",
+        wdget: "Link",
+        label: "Link",
+        dropdown_table_value: "https://element.eleme.io",
+        required: 1,
+        editable: 1,
+        value: "",
+        newLine: true
+      },
+      {
+        category: "Info",
+        wdget: "Image",
+        label: "Image",
+        dropdown_table_value: "https://element-plus.org/images/jnpfsoft.jpg",
+        required: 1,
+        editable: 1,
+        value: "",
+        newLine: true
+      },
+      {
+        category: "Info",
+        wdget: "Button",
+        label: "",
+        dropdown_table_value: "测试",
+        required: 1,
+        editable: 1,
+        value: "",
+        newLine: true
       },
       {
         category: "Sample Information",
         wdget: "Table",
         label: "Sample Information",
-        dropdown_table_value:
-          "Sample ID,Concentration(mg/mL),Volume(mL),Amount(mg)",
+        dropdown_table_value: "SampleID,Concentration,Volume,Amount",
         required: 1,
         editable: 1,
         value: [
           {
-            "Amount(mg)": "",
-            "Concentration(mg/mL)": "",
-            "Sample ID": "",
-            "Volume(mL)": ""
+            SampleID: "a",
+            Concentration: "b",
+            Volume: "c",
+            Amount: "d"
           }
         ]
       }
     ];
-
+    const previewVisible = ref(false);
     const tableData = reactive(initInfo);
     const ctContainerVisible = ref(false);
     const onSaveComponent = componentForm => {
@@ -335,8 +433,10 @@ export default defineComponent({
         }
       });
       previewData.value = newArr;
+      previewVisible.value = true;
       console.log(newArr);
     };
+    //onPreview();
     return {
       basicForm,
       basicFormRules,
@@ -349,7 +449,8 @@ export default defineComponent({
       ctContainerVisible,
       onSaveComponent,
       onPreview,
-      previewData
+      previewData,
+      previewVisible
     };
   }
 });

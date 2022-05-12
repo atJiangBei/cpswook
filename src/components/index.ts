@@ -1,6 +1,6 @@
 import { App } from "vue";
 import PopopContainer from "./popup-container/index.vue";
-import RenderTemplate from "./render-template/index.vue";
+import RenderTemplate from "./render-template/index";
 
 const components = [PopopContainer, RenderTemplate];
 

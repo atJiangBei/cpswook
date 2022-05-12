@@ -2,35 +2,34 @@
   <div>
     <div class="ym-margin-large ym-bg-white ym-br-large">
       <div>
-        <div>
-          <!-- v-buttonPermissions="{ route: $route, type: 'edit' }" -->
-          <el-button type="primary" @click="addRole">{{
-            $t("buttons.hsadd")
-          }}</el-button>
-        </div>
-        <div class="ym-margin-large-y">
-          <el-form :inline="true" :model="formInline">
-            <el-form-item label="roleName">
-              <el-input
-                v-model="formInline.username"
-                placeholder="Approved by"
-              />
+        <div class="ym-margin-default-y">
+          <el-form
+            :inline="true"
+            :model="formInline"
+            size="small"
+            ref="searchFormRef"
+          >
+            <el-form-item label="Role Name" prop="name">
+              <el-input v-model="formInline.name" placeholder="Role Name" />
             </el-form-item>
-            <!-- <el-form-item :label="$tl('label.other')">
-              <el-select
-                v-model="formInline.region"
-                placeholder="Activity zone"
-              >
-                <el-option label="Zone one" value="shanghai" />
-                <el-option label="Zone two" value="beijing" />
-              </el-select>
-            </el-form-item> -->
+            <el-form-item label="Role Code" prop="rolekey">
+              <el-input placeholder="Role Code" v-model="formInline.rolekey" />
+            </el-form-item>
             <el-form-item>
-              <el-button type="primary" @click="onQuery">{{
-                $t("buttons.hssearch")
+              <el-button type="primary" size="small" @click="onQuery">{{
+                $t("buttons.search")
+              }}</el-button>
+              <el-button type="primary" size="small" @click="onReset">{{
+                $t("buttons.reset")
               }}</el-button>
             </el-form-item>
           </el-form>
+        </div>
+        <div>
+          <!-- v-buttonPermissions="{ route: $route, type: 'edit' }" -->
+          <el-button type="primary" size="small" @click="addRole">{{
+            $t("buttons.hsadd")
+          }}</el-button>
         </div>
       </div>
       <div>
@@ -57,14 +56,17 @@
             :rules="roleFormRules"
             ref="roleFormRef"
           >
-            <el-form-item label="角色名" prop="username">
-              <el-input v-model="roleForm.username" placeholder="角色名" />
+            <el-form-item label="Role Name" prop="name">
+              <el-input v-model="roleForm.name" placeholder="Role Name" />
             </el-form-item>
-            <el-form-item label="描述" prop="description">
+            <el-form-item label="Role Code" prop="rolekey">
+              <el-input v-model="roleForm.rolekey" placeholder="Role Code" />
+            </el-form-item>
+            <el-form-item label="description" prop="description">
               <el-input
                 type="textarea"
                 v-model="roleForm.description"
-                placeholder="描述"
+                placeholder=""
               />
             </el-form-item>
             <el-form-item label="菜单列表">
@@ -100,23 +102,22 @@ export default {
 };
 </script>
 <script lang="ts" setup>
-import { useRoute } from "vue-router";
-import { ref, reactive, nextTick, onActivated, onUnmounted } from "vue";
+import { ref, reactive, nextTick } from "vue";
 import { useRoles, useRoutes } from "./useData";
-
 import { generateTree, deepClone } from "./utils";
-const routePath = useRoute().path;
-console.log(routePath);
 
 const [roles] = useRoles([], function load(value) {
   console.log(roles.value);
 });
 
+const searchFormRef = ref();
 const formInline = reactive({
-  username: "",
-  region: ""
+  name: "",
+  rolekey: ""
 });
-
+const onReset = () => {
+  searchFormRef.value.resetFields();
+};
 const onQuery = () => {};
 
 const dialogVisible = ref(false);
@@ -125,26 +126,33 @@ const dialogTitle = dialogType;
 const roleFormRef = ref();
 const roleTreeRef = ref();
 const roleFormRules = reactive({
-  username: {
+  name: {
     required: true,
-    message: "角色名为必填！",
+    message: "Role Name is required",
     trigger: "blur"
   },
-  description: {
+  rolekey: {
     required: true,
-    message: "描述为必填！",
+    message: "Role Key is required",
+    trigger: "blur"
+  },
+  rolekey: {
+    required: true,
+    message: "Role Key is required",
     trigger: "blur"
   }
 });
 
 const roleForm = reactive({
-  username: "",
+  name: "",
+  rolekey: "",
   description: ""
 });
 const addRole = () => {
   dialogTitle.value = "Add";
   dialogVisible.value = true;
   nextTick(() => {
+    roleTreeRef.value.setCheckedKeys([]);
     roleFormRef.value.resetFields();
   });
 };
@@ -159,17 +167,11 @@ const defaultProps = {
   label: "title",
   disabled: "disabled"
 };
-onActivated(() => {
-  console.log("onActivated");
-});
-onUnmounted(() => {
-  console.log("onUnmounted role");
-});
+
 const [menuList] = useRoutes([]);
 const onSubmit = () => {
   roleFormRef.value.validate((valid, fields) => {
     if (valid) {
-      console.log("submit!");
       try {
         const checkedKeys = roleTreeRef.value.getCheckedKeys();
         console.log(checkedKeys);

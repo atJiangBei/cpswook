@@ -21,11 +21,23 @@
             style="width: 150px"
           ></el-input>
         </el-form-item>
+        <el-form-item prop="sort" label="sort">
+          <el-input
+            v-model="componentForm.sort"
+            style="width: 150px"
+          ></el-input>
+        </el-form-item>
         <el-form-item prop="unit" label="Unit">
           <el-input
             v-model="componentForm.unit"
             style="width: 150px"
           ></el-input>
+        </el-form-item>
+        <el-form-item prop="newLine" label="New Line">
+          <el-select style="width: 150px" v-model="componentForm.newLine">
+            <el-option label="Yes" :value="true" />
+            <el-option label="no" :value="false" />
+          </el-select>
         </el-form-item>
         <el-form-item prop="value" label="Item Value">
           <el-input
@@ -43,7 +55,7 @@
             />
           </el-select>
         </el-form-item>
-        <el-form-item prop="dropdown_table_value" label="Version">
+        <el-form-item prop="dropdown_table_value" label="Dropdown value">
           <el-input
             style="width: 150px"
             v-model="componentForm.dropdown_table_value"
@@ -78,7 +90,9 @@ export default defineComponent({
     const componentForm = reactive({
       category: "",
       label: "",
+      sort: "",
       unit: "",
+      newLine: true,
       value: "",
       wdget: "",
       dropdown_table_value: "",
@@ -88,32 +102,37 @@ export default defineComponent({
     const componentFormRules = reactive({
       category: {
         required: true,
-        message: "category为必填！",
+        message: "Category is required",
         trigger: "blur"
       },
       label: {
         required: true,
-        message: "label为必填！",
+        message: "label is required",
+        trigger: "blur"
+      },
+      sort: {
+        required: true,
+        message: "Sort is required",
         trigger: "blur"
       },
       wdget: {
         required: true,
-        message: "wdget为必填！",
+        message: "Wdget is required",
         trigger: "blur"
       },
       dropdown_table_value: {
         required: true,
-        message: "dropdown_table_value为必填！",
+        message: "Dropdown value is required",
         trigger: "blur"
       },
       required: {
         required: true,
-        message: "required为必填！",
+        message: "Required is required",
         trigger: "blur"
       },
       editable: {
         required: true,
-        message: "editable为必填！",
+        message: "Editable is required",
         trigger: "blur"
       }
     });

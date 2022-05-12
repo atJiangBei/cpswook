@@ -10,6 +10,7 @@
         </div>
         <div
           class="flex-1 ym-padding-default ym-overflow-auto ym-scrollbar-basic"
+          v-if="modelValue"
         >
           <slot></slot>
         </div>
@@ -62,16 +63,29 @@ export default defineComponent({
 });
 </script>
 <style lang="scss">
-.lb-to-rt-enter-active,
+// .lb-to-rt-enter-active,
+// .lb-to-rt-leave-active {
+//   transition: all 0.25s cubic-bezier(0, 0, 0.2, 1);
+// }
+// .lb-to-rt-enter-from,
+// .lb-to-rt-leave-to {
+//   opacity: 0.3;
+//   transform: scale(0.1);
+//   transform-origin: left bottom;
+// }
+
+.lb-to-rt-enter-active {
+  transition: all 0.25s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+}
 .lb-to-rt-leave-active {
-  transition: all 0.25s cubic-bezier(0, 0, 0.2, 1);
+  transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86);
 }
 .lb-to-rt-enter-from,
 .lb-to-rt-leave-to {
-  opacity: 0.3;
-  transform: scale(0.1);
-  transform-origin: left bottom;
+  transform: translateY(-15px) scale3d(0.2, 0.2, 0.2);
+  opacity: 0;
 }
+
 .ym-popup-container {
   position: absolute;
   left: 0;

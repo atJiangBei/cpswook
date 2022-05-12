@@ -229,6 +229,13 @@ export function useTemplateTypeList() {
 
 const componentTypeList = [
   {
+    dicDesc: "",
+    itemId: "400032865",
+    dictTypeId: "751",
+    dicTxt: "Button",
+    dicId: "Button"
+  },
+  {
     dicDesc: "Checkbox",
     itemId: "20003249",
     dictTypeId: "751",
@@ -240,37 +247,21 @@ const componentTypeList = [
     dicDesc: "",
     itemId: "300031615",
     dictTypeId: "751",
-    dicTxt: "Checkbox Dropdown",
+    dicTxt: "Multiple select",
     dicId: "checkbox_dropdown"
   },
   {
     dicDesc: "",
     itemId: "300032166",
     dictTypeId: "751",
-    dicTxt: "Checkbox Dropdown With Group",
+    dicTxt: "Multiple select With Group",
     dicId: "checkbox_dropdown_with_group"
-  },
-  {
-    dicDesc: "",
-    itemId: "300031616",
-    dictTypeId: "751",
-    itemCode: "checkbox_system_dropdown",
-    dicTxt: "Checkbox System Dropdown",
-    dicId: "checkbox_system_dropdown"
-  },
-  {
-    dicDesc: "",
-    itemId: "200031427",
-    dictTypeId: "751",
-    itemCode: "customize_table",
-    dicTxt: "Customize Table",
-    dicId: "customize_table"
   },
   {
     dicDesc: "",
     itemId: "20002930",
     dictTypeId: "751",
-    dicTxt: "Date",
+    dicTxt: "DatePicker",
     dicId: "Date"
   },
   {
@@ -278,7 +269,7 @@ const componentTypeList = [
     itemId: "200031443",
     dictTypeId: "751",
     itemCode: "DateTime",
-    dicTxt: "DateTime",
+    dicTxt: "DateTimePicker",
     dicId: "DateTime"
   },
   {
@@ -297,16 +288,9 @@ const componentTypeList = [
   },
   {
     dicDesc: "",
-    itemId: "20002944",
-    dictTypeId: "751",
-    dicTxt: "Dynamic table",
-    dicId: "dynamic_table"
-  },
-  {
-    dicDesc: "",
     itemId: "20002921",
     dictTypeId: "751",
-    dicTxt: "File",
+    dicTxt: "Upload",
     dicId: "File"
   },
   {
@@ -329,14 +313,14 @@ const componentTypeList = [
     itemId: "200031350",
     dictTypeId: "751",
     itemCode: "Hidden",
-    dicTxt: "Hidden",
+    dicTxt: "Hidden Input",
     dicId: "Hidden"
   },
   {
     dicDesc: "",
     itemId: "300032451",
     dictTypeId: "751",
-    dicTxt: "img",
+    dicTxt: "Image",
     dicId: "img"
   },
   {
@@ -364,21 +348,28 @@ const componentTypeList = [
     dicDesc: "",
     itemId: "20002919",
     dictTypeId: "751",
-    dicTxt: "Number",
+    dicTxt: "Input Number",
     dicId: "Number"
+  },
+  {
+    dicDesc: "",
+    itemId: "400032864",
+    dictTypeId: "751",
+    dicTxt: "Radio",
+    dicId: "Radio"
   },
   {
     dicDesc: "",
     itemId: "300032064",
     dictTypeId: "751",
-    dicTxt: "Search Dropdown",
+    dicTxt: "Filtering select",
     dicId: "search_dropdown"
   },
   {
     dicDesc: "",
     itemId: "20002951",
     dictTypeId: "751",
-    dicTxt: "System Dropdown",
+    dicTxt: "Select",
     dicId: "system_dropdown"
   },
   {
@@ -392,14 +383,14 @@ const componentTypeList = [
     dicDesc: "",
     itemId: "20002918",
     dictTypeId: "751",
-    dicTxt: "Text",
+    dicTxt: "Input",
     dicId: "Text"
   },
   {
-    dicDesc: "",
+    dicDesc: "input Textarea",
     itemId: "20003074",
     dictTypeId: "751",
-    dicTxt: "Textarea",
+    dicTxt: "Input Textarea",
     dicId: "Textarea"
   }
 ];

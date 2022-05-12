@@ -86,9 +86,9 @@
         v-model:page-size="pageData.pageSize"
       />
     </div>
-    <popup-container v-model="addDialogVisible" title="Details">
+    <ym-popup-container v-model="addDialogVisible" title="Details">
       <TemplateDetails @cancel="addDialogVisible = false"></TemplateDetails>
-    </popup-container>
+    </ym-popup-container>
   </div>
 </template>
 <script lang="ts">
@@ -103,7 +103,6 @@ import { reactive, ref } from "vue";
 import { useTableData } from "./utils";
 import previewData from "./preview";
 import TemplateDetails from "./details/index.vue";
-import PopupContainer from "./component/popup-container";
 import { useBuCodeList, useTemplateTypeList } from "./useData";
 import { http } from "/@/utils/http";
 import axios from "axios";
