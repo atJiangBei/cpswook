@@ -43,11 +43,11 @@ let user = ref("jiao_qiangqiang0101");
 let pwd = ref("123456");
 
 const onLogin = async (): Promise<void> => {
-  // await useUserStore().loginByUsername({
-  //   username: user.value,
-  //   password: pwd.value,
-  //   ad: 0
-  // });
+  await useUserStore().loginByUsername({
+    username: user.value,
+    password: pwd.value,
+    ad: 0
+  });
   storageSession.setItem("info", {
     username: "jiao_qiangqiang0101",
     accessToken: "eyJhbGciOiJIUzUxMiJ9.test"
