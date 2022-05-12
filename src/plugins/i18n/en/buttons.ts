@@ -27,5 +27,7 @@ export default {
   delete: "Delete",
   search: "Search",
   reset: "Reset",
+  submit: "Submit",
+  browse: "Browse",
   query: "Query"
 };
