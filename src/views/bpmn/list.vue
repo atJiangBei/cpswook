@@ -1,11 +1,18 @@
 <template>
-  <div class="page-bpmn-list">
+  <div class="page-bpmn-list ym-padding-large ym-bg-white">
+    <el-row>
+      <el-col>
+        <el-button type="primary" @click="onCreate">New Process</el-button>
+      </el-col>
+    </el-row>
     <el-table :data="tableData" style="width: 100%">
       <el-table-column prop="code" label="Code" width="180" />
       <el-table-column prop="name" label="Name" />
       <el-table-column width="180">
         <template #default="scope">
-          <el-button type="text" size="small" @click="onEdit(scope.row)">Edit</el-button>
+          <el-button type="text" size="small" @click="onEdit(scope.row)"
+            >Edit</el-button
+          >
         </template>
       </el-table-column>
     </el-table>
@@ -29,7 +36,16 @@ const queryData = async () => {
   tableData.value = data;
 };
 queryData();
-const onEdit = (item) => {
+const onCreate = () => {
+  const token = getTokenStr();
+  href.open({
+    url: "http://localhost:8100/",
+    query: {
+      token
+    }
+  });
+};
+const onEdit = item => {
   const token = getTokenStr();
   href.open({
     url: "http://localhost:8100/",
