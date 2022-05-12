@@ -1,7 +1,7 @@
 <template>
   <div class="page-bpmn-list">
     <el-table :data="tableData" style="width: 100%">
-      <el-table-column prop="id" label="ID" width="180" />
+      <el-table-column prop="code" label="Code" width="180" />
       <el-table-column prop="name" label="Name" />
       <el-table-column width="180">
         <template #default="scope">
@@ -13,38 +13,30 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from "vue";
 import { getProcessList } from "/@/api/bpmn";
 import { getTokenStr } from "/@/utils/auth";
 import { href } from "/@/utils/href";
-// import { useRouter } from "vue-router";
 
-// const router = useRouter();
+// interface Process {
+//   id: string;
+//   name: string;
+// }
 
-interface Process {
-  id: string;
-  name: string;
-}
-
-const tableData: Process[] = [
-  {
-    id: "1",
-    name: "process1"
-  },
-  {
-    id: "2",
-    name: "process2"
-  }
-];
-getProcessList();
-const onEdit = (item: Process) => {
+const tableData = ref([]);
+const queryData = async () => {
+  const { data } = await getProcessList();
+  tableData.value = data;
+};
+queryData();
+const onEdit = (item) => {
   const token = getTokenStr();
   href.open({
     url: "http://localhost:8100/",
     query: {
-      process_id: item.id,
+      process_id: item.process_id,
       token
     }
   });
-  // window.open(`http://localhost:8100/?process_id=${item.id}&token=${token}`);
 };
 </script>
