@@ -3,8 +3,7 @@
     <div>
       <el-form
         :inline="true"
-        label-width="100px"
-        size="small"
+        label-width="120px"
         :model="searchForm"
         ref="searchFormRef"
       >
@@ -44,10 +43,10 @@
           ></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" size="small" @click="onQuery">
+          <el-button type="success" @click="onQuery">
             {{ $t("buttons.search") }}
           </el-button>
-          <el-button size="small" @click="resetSearchForm">
+          <el-button type="warning" @click="resetSearchForm">
             {{ $t("buttons.reset") }}
           </el-button>
         </el-form-item>
@@ -55,7 +54,7 @@
     </div>
 
     <div class="ym-padding-small-y">
-      <el-button type="primary" size="small" @click="onAdd">
+      <el-button type="primary" @click="onAdd">
         {{ $t("buttons.add") }}
       </el-button>
     </div>
@@ -105,7 +104,6 @@ import previewData from "./preview";
 import TemplateDetails from "./details/index.vue";
 import { useBuCodeList, useTemplateTypeList } from "./useData";
 import { http } from "/@/utils/http";
-import axios from "axios";
 
 console.log(http);
 const searchFormRef = ref();
@@ -127,11 +125,7 @@ const pageData = reactive({
 const [tableData, search] = useTableData(pageData);
 
 const onQuery = () => {
-  http.get("/api/searchList", {
-    params: { name: "ZhangSan", age: 45, info: { basic: "123" } }
-  });
-  http.post("/api/searchList", { data: { name: "ZhangSan", age: 2 } });
-  //search();
+  search();
 };
 
 const resetSearchForm = () => {

@@ -47,11 +47,11 @@ export default defineComponent({
       console.log("render");
       return (
         <div class="ym-render-template">
-          <YmForm labelWidth="100px" ref={el => (formRef.value = el)}>
+          <YmForm labelWidth="120px" ref={el => (formRef.value = el)}>
             {previewData.map((item, index) => {
               return (
                 <div class="ym-render-template-item">
-                  <div class="ym-padding-large ym-flex ym-flex-jc-sb ym-flex-ai-center ym-bg-blue">
+                  <div class="ym-padding-large ym-flex ym-flex-jc-sb ym-flex-ai-center ym-bg-primary">
                     <span class="ym-color-white">{item.category}</span>
                     <el-popconfirm
                       title={`${i18n.global.t("buttons.delete")}?`}
@@ -243,6 +243,15 @@ function renderComponent(data: TemplateAttr) {
         </el-radio-group>
       );
       break;
+    case "RadioButton":
+      content = (
+        <el-radio-group v-model={data.value}>
+          {keys.map(val => {
+            return <el-radio-button label={val} />;
+          })}
+        </el-radio-group>
+      );
+      break;
     case "Number":
       content = <el-input-number v-model={data.value} />;
       break;
@@ -267,6 +276,27 @@ function renderComponent(data: TemplateAttr) {
       content = (
         <el-date-picker
           type="date"
+          placeholder="Pick a day"
+          v-model={data.value}
+        />
+      );
+      break;
+    case "DateTimeRange":
+      content = (
+        <el-date-picker
+          type="datetimerange"
+          start-placeholder="Start Date"
+          end-placeholder="End Date"
+          placeholder="Pick a day"
+          v-model={data.value}
+        />
+      );
+      break;
+    case "TimePicker":
+      content = (
+        <el-time-picker
+          is-range
+          arrow-control
           placeholder="Pick a day"
           v-model={data.value}
         />

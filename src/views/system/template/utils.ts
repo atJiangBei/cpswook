@@ -1,4 +1,4 @@
-import { watch, ref } from "vue";
+import { watch, ref, Ref } from "vue";
 import jsonData from "./json";
 
 const getTableData = pageData => {
@@ -8,7 +8,7 @@ const getTableData = pageData => {
   return Promise.resolve(jsonData);
 };
 
-export const useTableData = pageData => {
+export const useTableData = (pageData): [Ref<any[]>, () => void] => {
   const tableData = ref([]);
 
   const getData = () => {

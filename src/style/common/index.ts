@@ -1,2 +1,3 @@
 import "./var.scss";
+import "./reset.scss";
 import "./common.scss";

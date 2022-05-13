@@ -29,6 +29,7 @@ specifiers:
   '@vueuse/motion': ^2.0.0-beta.4
   '@zougt/vite-plugin-theme-preprocessor': ^1.4.0
   animate.css: ^4.1.1
+  async-validator: ^4.1.1
   autoprefixer: 10.2.4
   axios: ^0.21.1
   cropperjs: ^1.5.11
@@ -154,6 +155,7 @@ devDependencies:
   '@vue/eslint-config-prettier': 6.0.0_82e4252401b0cc5be86f7c2133946f49
   '@vue/eslint-config-typescript': 7.0.0_e03d82996bd4a66fb128f33523d782ea
   '@zougt/vite-plugin-theme-preprocessor': 1.4.0_sass@1.45.0
+  async-validator: 4.1.1
   autoprefixer: 10.2.4_postcss@8.2.6
   cross-env: 7.0.3
   eslint: 7.30.0
@@ -1510,9 +1512,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /async-validator/4.0.7:
-    resolution: {integrity: sha512-Pj2IR7u8hmUEDOwB++su6baaRi+QvsgajuFB9j95foM1N2gy5HM4z60hfusIO0fBPG5uLAEl6yCJr1jNSVugEQ==}
-    dev: false
+  /async-validator/4.1.1:
+    resolution: {integrity: sha512-p4DO/JXwjs8klJyJL8Q2oM4ks5fUTze/h5k10oPPKMiLe1fj3G1QMzPHNmN1Py4ycOk7WlO2DcGXv1qiESJCZA==}
 
   /autoprefixer/10.2.4_postcss@8.2.6:
     resolution: {integrity: sha512-DCCdUQiMD+P/as8m3XkeTUkUKuuRqLGcwD0nll7wevhqoJfMRpJlkFd1+MQh1pvupjiQuip42lc/VFvfUTMSKw==}
@@ -2315,7 +2316,7 @@ packages:
       '@element-plus/icons-vue': 0.2.4_vue@3.2.24
       '@popperjs/core': 2.11.0
       '@vueuse/core': 7.4.3_vue@3.2.24
-      async-validator: 4.0.7
+      async-validator: 4.1.1
       dayjs: 1.10.7
       lodash: 4.17.21
       memoize-one: 6.0.0
