@@ -50,7 +50,7 @@ const onEdit = item => {
   href.open({
     url: "http://localhost:8100/",
     query: {
-      process_id: item.process_id,
+      process_id: item.id,
       token
     }
   });
