@@ -1,67 +1,94 @@
-body {
-  --el-color-primary: #016bb5; /*基本色*/
-  --el-color-primary-light-2: #038ae9; /*hover focus*/
-  --el-color-primary-dark-2: #00497d; /*active*/
-  --el-color-success: #01a245;
-  --el-color-success-light-3: #02ca57;
-  --el-color-success-dark-2: #077536;
-  --el-color-warning: #fdcc03;
-  --el-color-warning-light-3: #ffd93a;
-  --el-color-warning-dark-2: #edbf01;
-}
+// body {
+//   --el-color-primary: #016bb5; /*基本色*/
+//   --el-color-primary-light-2: #038ae9; /*hover focus*/
+//   --el-color-primary-dark-2: #00497d; /*active*/
+//   --el-color-success: #01a245;
+//   --el-color-success-light-3: #02ca57;
+//   --el-color-success-dark-2: #077536;
+//   --el-color-warning: #fdcc03;
+//   --el-color-warning-light-3: #ffd93a;
+//   --el-color-warning-dark-2: #edbf01;
+// }
 
-body {
-  .el-button--primary {
-    --el-button-bg-color: #016bb5 !important;
-    --el-button-border-color: #016bb5 !important;
-    --el-button-hover-bg-color: #038ae9 !important;
-    --el-button-hover-border-color: #038ae9 !important;
-    --el-button-active-bg-color: #00497d !important;
-    --el-button-active-border-color: #00497d !important;
-  }
-  .el-button--success {
-    --el-button-bg-color: #01a245 !important;
-    --el-button-border-color: #01a245 !important;
-    --el-button-hover-bg-color: #02ca57 !important;
-    --el-button-hover-border-color: #02ca57 !important;
-    --el-button-active-bg-color: #077536 !important;
-    --el-button-active-border-color: #077536 !important;
-  }
-  .el-button--warning {
-    --el-button-bg-color: #fdcc03 !important;
-    --el-button-border-color: #fdcc03 !important;
-    --el-button-hover-bg-color: #ffd93a !important;
-    --el-button-hover-border-color: #ffd93a !important;
-    --el-button-active-bg-color: #edbf01 !important;
-    --el-button-active-border-color: #edbf01 !important;
-  }
-  /*时间控件确定按钮*/
-  .el-time-panel__btn.confirm{
-      background-color: var(--el-color-primary);
-      color:#fff;
-      font-weight: 500;
-      line-height: 22px;
-      border-radius: 3px;
-  }
-  .el-picker-panel__footer{
-      display: flex;
-      justify-content: space-between;
-      padding: 4px 10px;
-      .el-button.is-plain{
-        --el-button-active-text-color: #fff;
-        --el-button-active-border-color: #00497d;
-        --el-button-hover-text-color: #fff;
-        --el-button-hover-bg-color: #038ae9;
-        --el-button-hover-border-color: #038ae9;
-        background-color:#016bb5;
-        border-color:#016bb5;
-        color:#fff;
-      }
-  }
-  .el-picker-panel{
-    color:#0052d9;
-  }
-  .el-date-range-picker{
-    --el-datepicker-active-color:#0052d9;
-  }
-}
+// body {
+//   .el-button--primary {
+//     --el-button-bg-color: #016bb5 !important;
+//     --el-button-border-color: #016bb5 !important;
+//     --el-button-hover-bg-color: #038ae9 !important;
+//     --el-button-hover-border-color: #038ae9 !important;
+//     --el-button-active-bg-color: #00497d !important;
+//     --el-button-active-border-color: #00497d !important;
+//   }
+//   .el-button--success {
+//     --el-button-bg-color: #01a245 !important;
+//     --el-button-border-color: #01a245 !important;
+//     --el-button-hover-bg-color: #02ca57 !important;
+//     --el-button-hover-border-color: #02ca57 !important;
+//     --el-button-active-bg-color: #077536 !important;
+//     --el-button-active-border-color: #077536 !important;
+//   }
+//   .el-button--warning {
+//     --el-button-bg-color: #fdcc03 !important;
+//     --el-button-border-color: #fdcc03 !important;
+//     --el-button-hover-bg-color: #ffd93a !important;
+//     --el-button-hover-border-color: #ffd93a !important;
+//     --el-button-active-bg-color: #edbf01 !important;
+//     --el-button-active-border-color: #edbf01 !important;
+//   }
+//   /*radio*/
+//   .el-radio{
+//     --el-radio-input-border-color-hover:#0052d9;
+//     --el-radio-text-color:#000;
+//     --el-radio-input-border:1px solid #dcdcdc;
+//     .el-radio__input.is-checked .el-radio__inner{
+//       border-color: #0052d9;
+//     background: #0052d9;
+//     }
+//     .el-radio__input.is-checked+.el-radio__label{
+//       color:#0052d9;
+//     }
+    
+//   }
+//   .el-radio-button {
+//     --el-radio-button-checked-bg-color: #0052d9;
+//     --el-radio-button-checked-text-color: var(--el-color-white);
+//     --el-radio-button-checked-border-color: #0052d9;
+//     --el-radio-button-disabled-checked-fill: #bbd3fb;
+//     --el-button-text-color:#000;
+// }
+// .el-radio-button__original-radio:disabled:checked+.el-radio-button__inner{
+//   color: #fff;
+// }
+// .el-radio-button__inner{
+//   border: 1px solid #dcdcdc;
+// }
+//   /*时间控件确定按钮*/
+//   .el-time-panel__btn.confirm{
+//       background-color: var(--el-color-primary);
+//       color:#fff;
+//       font-weight: 500;
+//       line-height: 22px;
+//       border-radius: 3px;
+//   }
+//   .el-picker-panel__footer{
+//       display: flex;
+//       justify-content: space-between;
+//       padding: 4px 10px;
+//       .el-button.is-plain{
+//         --el-button-active-text-color: #fff;
+//         --el-button-active-border-color: #00497d;
+//         --el-button-hover-text-color: #fff;
+//         --el-button-hover-bg-color: #038ae9;
+//         --el-button-hover-border-color: #038ae9;
+//         background-color:#016bb5;
+//         border-color:#016bb5;
+//         color:#fff;
+//       }
+//   }
+//   .el-picker-panel{
+//     color:#0052d9;
+//   }
+//   .el-date-range-picker{
+//     --el-datepicker-active-color:#0052d9;
+//   }
+// }

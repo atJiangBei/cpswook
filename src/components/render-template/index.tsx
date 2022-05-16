@@ -220,10 +220,20 @@ function renderComponent(data: TemplateAttr) {
       );
       break;
     case "Input":
-      content = <el-input type="text" v-model={data.value}></el-input>;
+      content = (
+        <el-input
+          style="width:400px;"
+          type="text"
+          v-model={data.value}></el-input>
+      );
       break;
     case "Textarea":
-      content = <el-input type="textarea" v-model={data.value}></el-input>;
+      content = (
+        <el-input
+          style="width:400px;"
+          type="textarea"
+          v-model={data.value}></el-input>
+      );
       break;
     case "Checkbox":
       content = (
@@ -249,6 +259,7 @@ function renderComponent(data: TemplateAttr) {
           {keys.map(val => {
             return <el-radio-button label={val} />;
           })}
+          <el-radio-button label="选项四" disabled></el-radio-button>
         </el-radio-group>
       );
       break;
@@ -306,7 +317,11 @@ function renderComponent(data: TemplateAttr) {
       const options = useSelectOptions();
       console.log(219, options);
       content = (
-        <el-select v-model={data.value} filterable clearable>
+        <el-select
+          style="width:400px;"
+          v-model={data.value}
+          filterable
+          clearable>
           {keys.map(val => {
             return <el-option label={val} key={val} value={val}></el-option>;
           })}

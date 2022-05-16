@@ -1,0 +1,82 @@
+.unified {
+  /*button*/
+  .el-button {
+    .el-icon {
+      height: 16px;
+      width: 16px;
+    }
+  }
+  .el-button--primary {
+    --el-button-bg-color: #016bb5 !important;
+    --el-button-border-color: #016bb5 !important;
+    --el-button-hover-bg-color: #038ae9 !important;
+    --el-button-hover-border-color: #038ae9 !important;
+    --el-button-active-bg-color: #00497d !important;
+    --el-button-active-border-color: #00497d !important;
+    &.el-button.is-disabled,
+    &.el-button.is-disabled:focus,
+    &.el-button.is-disabled:hover {
+      color: #fff;
+      background-color: #accee5;
+      border-color: #accee5;
+    }
+  }
+  .el-button--success {
+    --el-button-bg-color: #01a245 !important;
+    --el-button-border-color: #01a245 !important;
+    --el-button-hover-bg-color: #02ca57 !important;
+    --el-button-hover-border-color: #02ca57 !important;
+    --el-button-active-bg-color: #077536 !important;
+    --el-button-active-border-color: #077536 !important;
+    &.el-button.is-disabled,
+    &.el-button.is-disabled:focus,
+    &.el-button.is-disabled:hover {
+      color: #fff;
+      background-color: #a5e5c2;
+      border-color: #a5e5c2;
+    }
+  }
+  .el-button--warning {
+    --el-button-bg-color: #fdcc03 !important;
+    --el-button-border-color: #fdcc03 !important;
+    --el-button-hover-bg-color: #ffd93a !important;
+    --el-button-hover-border-color: #ffd93a !important;
+    --el-button-active-bg-color: #edbf01 !important;
+    --el-button-active-border-color: #edbf01 !important;
+    &.el-button.is-disabled,
+    &.el-button.is-disabled:focus,
+    &.el-button.is-disabled:hover {
+      color: #fff;
+      background-color: #f5e5a3;
+      border-color: #f5e5a3;
+    }
+  }
+
+  /*checkbox*/
+  .el-checkbox {
+    color: rgba(0, 0, 0, 0.9);
+  }
+  .el-checkbox__inner {
+    width: 16px;
+    height: 16px;
+    &::after {
+      border-width: 2px;
+    }
+  }
+  .el-checkbox {
+    --el-checkbox-input-border: 1px solid #dcdcdc;
+    --el-checkbox-disabled-border-color: #dcdcdc;
+    --el-checkbox-disabled-input-fill: #eeeeee;
+    --el-checkbox-disabled-checked-input-fill: #eeeeee;
+    --el-checkbox-disabled-checked-input-border-color: #dcdcdc;
+    --el-checkbox-disabled-checked-icon-color: var(--el-text-color-placeholder);
+    --el-checkbox-checked-text-color: color: rgba(0, 0, 0, 0.9);
+    --el-checkbox-checked-input-border-color: #0052d9;
+    --el-checkbox-checked-bg-color: #0052d9;
+    --el-checkbox-checked-icon-color: var(--el-fill-base);
+    --el-checkbox-input-border-color-hover: #0052d9;
+  }
+  .el-checkbox__input.is-disabled+span.el-checkbox__label {
+    color: rgba(0, 0, 0, 0.26);
+}
+}

@@ -339,10 +339,10 @@ export default defineComponent({
         category: "Info",
         wdget: "Checkbox",
         label: "Type",
-        dropdown_table_value: "a,b",
+        dropdown_table_value: "选项一,选项二,选项三",
         required: 1,
         editable: 1,
-        value: [],
+        value: ["选项二"],
         newLine: true
       },
       {
@@ -359,20 +359,20 @@ export default defineComponent({
         category: "Info",
         wdget: "Radio",
         label: "Radio",
-        dropdown_table_value: "a,b,c",
+        dropdown_table_value: "选项一,选项二,选项三",
         required: 1,
         editable: 1,
-        value: "",
+        value: "选项二",
         newLine: true
       },
       {
         category: "Info",
         wdget: "RadioButton",
         label: "RadioButton",
-        dropdown_table_value: "a,b,c",
+        dropdown_table_value: "选项一,选项二,选项三",
         required: 1,
         editable: 1,
-        value: "",
+        value: "选项四",
         newLine: true
       },
       {

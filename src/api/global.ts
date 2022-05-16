@@ -38,6 +38,14 @@ const routesData = [
         type: 1,
         showLink: true,
         i18n: true
+      },
+      {
+        title: "menus.templateManagement",
+        path: "/system/reset/index",
+        name: "system-reset",
+        type: 1,
+        showLink: true,
+        i18n: true
       }
     ]
   },
