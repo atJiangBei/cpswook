@@ -14,5 +14,6 @@ export default {
   downloadPDBFile: "Download PDB file",
   settings: "Settings",
   downloadTable: "Download the table(csv)",
+  showBuriedResidues: "Show buried residues",
   showChain: "show chain"
 };

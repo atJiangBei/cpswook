@@ -7,7 +7,9 @@
       <el-tab-pane :label="$t('aggrescan.aggrescanScore')">
         <AggrescanScore></AggrescanScore>
       </el-tab-pane>
-      <el-tab-pane :label="$t('aggrescan.aggrescanPlot')">Role</el-tab-pane>
+      <el-tab-pane :label="$t('aggrescan.aggrescanPlot')">
+        <AggrescanPlot></AggrescanPlot>
+      </el-tab-pane>
     </el-tabs>
   </div>
 </template>
@@ -15,8 +17,9 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import type { TabsPaneContext } from "element-plus";
-import ProjectDetail from "./_components/ProjectDetail";
-import AggrescanScore from "./_components/AggrescanScore";
+import ProjectDetail from "./_components/ProjectDetail.vue";
+import AggrescanScore from "./_components/AggrescanScore.vue";
+import AggrescanPlot from "./_components/AggrescanPlot.vue";
 
 const curTab = ref("0");
 

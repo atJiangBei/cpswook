@@ -63,6 +63,7 @@
     "seqviz": "^3.3.0",
     "v-contextmenu": "3.0.0",
     "vue": "^3.2.24",
+    "vue-echarts": "^6.0.3",
     "vue-i18n": "^9.2.0-beta.3",
     "vue-json-pretty": "^2.0.2",
     "vue-router": "^4.0.12",

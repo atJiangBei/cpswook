@@ -81,6 +81,7 @@ specifiers:
   vite-plugin-windicss: ^1.6.1
   vite-svg-loader: ^2.2.0
   vue: ^3.2.24
+  vue-echarts: ^6.0.3
   vue-eslint-parser: 7.10.0
   vue-i18n: ^9.2.0-beta.3
   vue-json-pretty: ^2.0.2
@@ -129,6 +130,7 @@ dependencies:
   seqviz: registry.npmmirror.com/seqviz/3.3.0
   v-contextmenu: 3.0.0_vue@3.2.24
   vue: 3.2.24
+  vue-echarts: registry.npmmirror.com/vue-echarts/6.0.3_echarts@5.2.2+vue@3.2.24
   vue-i18n: 9.2.0-beta.17_vue@3.2.24
   vue-json-pretty: 2.0.4_vue@3.2.24
   vue-router: 4.0.12_vue@3.2.24
@@ -1271,7 +1273,7 @@ packages:
     dependencies:
       '@vueuse/shared': 7.4.3_vue@3.2.24
       vue: 3.2.24
-      vue-demi: 0.12.1_vue@3.2.24
+      vue-demi: registry.npmmirror.com/vue-demi/0.12.1_vue@3.2.24
     dev: false
 
   /@vueuse/motion/2.0.0-beta.4_vue@3.2.24:
@@ -1301,7 +1303,7 @@ packages:
         optional: true
     dependencies:
       vue: 3.2.24
-      vue-demi: 0.12.1_vue@3.2.24
+      vue-demi: registry.npmmirror.com/vue-demi/0.12.1_vue@3.2.24
     dev: false
 
   /@vueuse/shared/7.4.3_vue@3.2.24:
@@ -1316,7 +1318,7 @@ packages:
         optional: true
     dependencies:
       vue: 3.2.24
-      vue-demi: 0.12.1_vue@3.2.24
+      vue-demi: registry.npmmirror.com/vue-demi/0.12.1_vue@3.2.24
     dev: false
 
   /@windicss/config/1.6.1:
@@ -6042,6 +6044,12 @@ packages:
       throttle-debounce: registry.npmmirror.com/throttle-debounce/3.0.1
     dev: false
 
+  registry.npmmirror.com/resize-detector/0.3.0:
+    resolution: {integrity: sha512-R/tCuvuOHQ8o2boRP6vgx8hXCCy87H1eY9V5imBYeVNyNVpuL9ciReSccLj2gDcax9+2weXy3bc8Vv+NRXeEvQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/resize-detector/-/resize-detector-0.3.0.tgz}
+    name: resize-detector
+    version: 0.3.0
+    dev: false
+
   registry.npmmirror.com/safe-buffer/5.1.2:
     resolution: {integrity: sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/safe-buffer/-/safe-buffer-5.1.2.tgz}
     name: safe-buffer
@@ -6121,6 +6129,44 @@ packages:
     resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/tr46/-/tr46-0.0.3.tgz}
     name: tr46
     version: 0.0.3
+    dev: false
+
+  registry.npmmirror.com/vue-demi/0.12.1_vue@3.2.24:
+    resolution: {integrity: sha512-QL3ny+wX8c6Xm1/EZylbgzdoDolye+VpCXRhI2hug9dJTP3OUJ3lmiKN3CsVV3mOJKwFi0nsstbgob0vG7aoIw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vue-demi/-/vue-demi-0.12.1.tgz}
+    id: registry.npmmirror.com/vue-demi/0.12.1
+    name: vue-demi
+    version: 0.12.1
+    engines: {node: '>=12'}
+    hasBin: true
+    requiresBuild: true
+    peerDependencies:
+      '@vue/composition-api': ^1.0.0-rc.1
+      vue: ^3.0.0-0 || ^2.6.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+    dependencies:
+      vue: 3.2.24
+    dev: false
+
+  registry.npmmirror.com/vue-echarts/6.0.3_echarts@5.2.2+vue@3.2.24:
+    resolution: {integrity: sha512-Nu+qb+szmBFCiVmNSZclquRx2lONGxfJXeppXODBYCl+KAdsP2TIaDwO2wfEFqU5jyxaL4b/qV7IYxswESTSFw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vue-echarts/-/vue-echarts-6.0.3.tgz}
+    id: registry.npmmirror.com/vue-echarts/6.0.3
+    name: vue-echarts
+    version: 6.0.3
+    requiresBuild: true
+    peerDependencies:
+      '@vue/composition-api': ^1.0.5
+      echarts: ^5.1.2
+      vue: ^2.6.12 || ^3.1.1
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+    dependencies:
+      echarts: 5.2.2
+      resize-detector: registry.npmmirror.com/resize-detector/0.3.0
+      vue: 3.2.24
+      vue-demi: registry.npmmirror.com/vue-demi/0.12.1_vue@3.2.24
     dev: false
 
   registry.npmmirror.com/webidl-conversions/3.0.1:
