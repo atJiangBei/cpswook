@@ -5,7 +5,7 @@ specifiers:
   '@commitlint/cli': 13.1.0
   '@commitlint/config-conventional': 13.1.0
   '@ctrl/tinycolor': ^3.4.0
-  '@element-plus/icons-vue': ^0.2.4
+  '@element-plus/icons-vue': ^1.1.4
   '@fortawesome/fontawesome-svg-core': ^1.2.36
   '@fortawesome/free-solid-svg-icons': ^5.15.4
   '@fortawesome/vue-fontawesome': ^3.0.0-5
@@ -97,7 +97,7 @@ specifiers:
 dependencies:
   '@amap/amap-jsapi-loader': 1.0.1
   '@ctrl/tinycolor': 3.4.0
-  '@element-plus/icons-vue': 0.2.4_vue@3.2.24
+  '@element-plus/icons-vue': registry.npmmirror.com/@element-plus/icons-vue/1.1.4_vue@3.2.24
   '@fortawesome/fontawesome-svg-core': 1.2.36
   '@fortawesome/free-solid-svg-icons': 5.15.4
   '@fortawesome/vue-fontawesome': 3.0.0-5_afgyjd4kaswex5e33hpxji2ksy
@@ -656,14 +656,6 @@ packages:
   /@ctrl/tinycolor/3.4.0:
     resolution: {integrity: sha512-JZButFdZ1+/xAfpguQHoabIXkcqRRKpMrWKBkpEZZyxfY9C1DpADFB8PEqGSTeFr135SaTRfKqGKx5xSCLI7ZQ==}
     engines: {node: '>=10'}
-    dev: false
-
-  /@element-plus/icons-vue/0.2.4_vue@3.2.24:
-    resolution: {integrity: sha512-RsJNyL58rwxtsjeMy34o8txkL6UlME1stWsUlRpTac6UE9Bx9gdJvnDXbIKhOJqBLX17fBjmposdrn6VTqim2w==}
-    peerDependencies:
-      vue: ^3.2.0
-    dependencies:
-      vue: 3.2.24
     dev: false
 
   /@endemolshinegroup/cosmiconfig-typescript-loader/3.0.2_h7omppdsjpmqbjubwxuuk7wzji:
@@ -2314,7 +2306,7 @@ packages:
       vue: ^3.2.0
     dependencies:
       '@ctrl/tinycolor': 3.4.0
-      '@element-plus/icons-vue': 0.2.4_vue@3.2.24
+      '@element-plus/icons-vue': registry.npmmirror.com/@element-plus/icons-vue/0.2.4_vue@3.2.24
       '@popperjs/core': 2.11.0
       '@vueuse/core': 7.4.3_vue@3.2.24
       async-validator: registry.npmmirror.com/async-validator/4.1.1
@@ -5645,6 +5637,28 @@ packages:
   /zwitch/1.0.5:
     resolution: {integrity: sha512-V50KMwwzqJV0NpZIZFwfOD5/lyny3WlSzRiXgA0G7VUnRlqttta1L6UQIHzd6EuBY/cHGfwTIck7w1yH6Q5zUw==}
     dev: true
+
+  registry.npmmirror.com/@element-plus/icons-vue/0.2.4_vue@3.2.24:
+    resolution: {integrity: sha512-RsJNyL58rwxtsjeMy34o8txkL6UlME1stWsUlRpTac6UE9Bx9gdJvnDXbIKhOJqBLX17fBjmposdrn6VTqim2w==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@element-plus/icons-vue/-/icons-vue-0.2.4.tgz}
+    id: registry.npmmirror.com/@element-plus/icons-vue/0.2.4
+    name: '@element-plus/icons-vue'
+    version: 0.2.4
+    peerDependencies:
+      vue: ^3.2.0
+    dependencies:
+      vue: 3.2.24
+    dev: false
+
+  registry.npmmirror.com/@element-plus/icons-vue/1.1.4_vue@3.2.24:
+    resolution: {integrity: sha512-Iz/nHqdp1sFPmdzRwHkEQQA3lKvoObk8azgABZ81QUOpW9s/lUyQVUSh0tNtEPZXQlKwlSh7SPgoVxzrE0uuVQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@element-plus/icons-vue/-/icons-vue-1.1.4.tgz}
+    id: registry.npmmirror.com/@element-plus/icons-vue/1.1.4
+    name: '@element-plus/icons-vue'
+    version: 1.1.4
+    peerDependencies:
+      vue: ^3.2.0
+    dependencies:
+      vue: 3.2.24
+    dev: false
 
   registry.npmmirror.com/async-validator/4.1.1:
     resolution: {integrity: sha512-p4DO/JXwjs8klJyJL8Q2oM4ks5fUTze/h5k10oPPKMiLe1fj3G1QMzPHNmN1Py4ycOk7WlO2DcGXv1qiESJCZA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/async-validator/-/async-validator-4.1.1.tgz}
