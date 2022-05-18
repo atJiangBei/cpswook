@@ -1,6 +1,9 @@
 .ym-color-white {
   color: var(--ym-white);
 }
+.ym-color-333 {
+  color: var(--ym-color-333);
+}
 .ym-bg-white {
   background-color: var(--ym-white);
 }
@@ -123,4 +126,17 @@
 }
 .ym-br-small {
   border-radius: var(--ym-br-small);
+}
+
+.ym-title-h2 {
+  font-size: var(--ym-title-h2);
+  font-weight: bold;
+}
+.ym-title-h3 {
+  font-size: var(--ym-title-h3);
+  font-weight: bold;
+}
+
+.ym-border-ddd {
+  border: 1px solid var(--rm-border-color-ddd);
 }

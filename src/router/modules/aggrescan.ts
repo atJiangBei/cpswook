@@ -32,6 +32,16 @@ const bpmnRouter = {
         i18n: true,
         showLink: false
       }
+    },
+    {
+      path: "/aggrescan/mutate",
+      name: "aggrescanMutate",
+      component: () => import("/@/views/aggrescan/mutate.vue"),
+      meta: {
+        title: $t("menus.aggrescanMutate"),
+        i18n: true,
+        showLink: true
+      }
     }
   ]
 };

@@ -46,6 +46,7 @@ export default {
   aggrescan: "Aggrescan",
   aggrescanAnalysis: "Aggrescan Analysis",
   aggrescanResult: "Aggrescan Result",
+  aggrescanMutate: "Aggrescan Mutate",
   test: "test",
   systemManagement: "System Management",
   permissionRole: "Role Permission",

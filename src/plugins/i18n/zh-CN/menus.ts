@@ -48,6 +48,7 @@ export default {
   aggrescan: "Aggrescan",
   aggrescanAnalysis: "Aggrescan Analysis",
   aggrescanResult: "Aggrescan Result",
+  aggrescanMutate: "Aggrescan Mutate",
   test: "测试",
   systemManagement: "系统管理",
   permissionRole: "角色权限",

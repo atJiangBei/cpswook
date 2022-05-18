@@ -15,5 +15,14 @@ export default {
   settings: "Settings",
   downloadTable: "Download the table(csv)",
   showBuriedResidues: "Show buried residues",
-  showChain: "show chain"
+  whichToMutate: "Which residues to mutate?",
+  showChain: "show chain",
+  residueFrom: "From",
+  chain: "Chain",
+  residueIndex: "Index",
+  residueTo: "To",
+  saveAndSubmit: "Save changes and submit",
+  undo: "Undo",
+  replacedResidues: "Replaced residues",
+  mutateResidue: "Mutate residue"
 };
