@@ -47,11 +47,11 @@ export default defineComponent({
       console.log("render");
       return (
         <div class="ym-render-template">
-          <YmForm labelWidth="100px" ref={el => (formRef.value = el)}>
+          <YmForm labelWidth="130px" ref={el => (formRef.value = el)}>
             {previewData.map((item, index) => {
               return (
                 <div class="ym-render-template-item">
-                  <div class="ym-padding-large ym-flex ym-flex-jc-sb ym-flex-ai-center ym-bg-blue">
+                  <div class="ym-padding-large ym-flex ym-flex-jc-sb ym-flex-ai-center ym-bg-primary">
                     <span class="ym-color-white">{item.category}</span>
                     <el-popconfirm
                       title={`${i18n.global.t("buttons.delete")}?`}
@@ -220,10 +220,20 @@ function renderComponent(data: TemplateAttr) {
       );
       break;
     case "Input":
-      content = <el-input type="text" v-model={data.value}></el-input>;
+      content = (
+        <el-input
+          style="width:400px;"
+          type="text"
+          v-model={data.value}></el-input>
+      );
       break;
     case "Textarea":
-      content = <el-input type="textarea" v-model={data.value}></el-input>;
+      content = (
+        <el-input
+          style="width:400px;"
+          type="textarea"
+          v-model={data.value}></el-input>
+      );
       break;
     case "Checkbox":
       content = (
@@ -240,6 +250,16 @@ function renderComponent(data: TemplateAttr) {
           {keys.map(val => {
             return <el-radio label={val} />;
           })}
+        </el-radio-group>
+      );
+      break;
+    case "RadioButton":
+      content = (
+        <el-radio-group v-model={data.value}>
+          {keys.map(val => {
+            return <el-radio-button label={val} />;
+          })}
+          <el-radio-button label="选项四" disabled></el-radio-button>
         </el-radio-group>
       );
       break;
@@ -272,11 +292,36 @@ function renderComponent(data: TemplateAttr) {
         />
       );
       break;
+    case "DateTimeRange":
+      content = (
+        <el-date-picker
+          type="datetimerange"
+          start-placeholder="Start Date"
+          end-placeholder="End Date"
+          placeholder="Pick a day"
+          v-model={data.value}
+        />
+      );
+      break;
+    case "TimePicker":
+      content = (
+        <el-time-picker
+          is-range
+          arrow-control
+          placeholder="Pick a day"
+          v-model={data.value}
+        />
+      );
+      break;
     case "Select":
       const options = useSelectOptions();
       console.log(219, options);
       content = (
-        <el-select v-model={data.value} filterable clearable>
+        <el-select
+          style="width:400px;"
+          v-model={data.value}
+          filterable
+          clearable>
           {keys.map(val => {
             return <el-option label={val} key={val} value={val}></el-option>;
           })}

@@ -10,7 +10,6 @@
             :inline="true"
             :rules="basicFormRules"
             label-width="120px"
-            size="small"
           >
             <el-form-item prop="name" label="Template Name">
               <el-input
@@ -113,10 +112,10 @@
           </el-form>
         </div>
         <div class="ym-padding-default-x ym-flex ym-flex-jc-end">
-          <el-button size="small" @click="$emit('cancel')">
+          <el-button @click="$emit('cancel')">
             {{ $t("buttons.cancel") }}
           </el-button>
-          <el-button size="small" type="primary" @click="saveBasicInfo">{{
+          <el-button type="primary" @click="saveBasicInfo">{{
             $t("buttons.save")
           }}</el-button>
         </div>
@@ -125,16 +124,10 @@
         <div>Template Details</div>
         <div>
           <div class="ym-padding-small-y">
-            <el-button
-              type="primary"
-              size="small"
-              @click="ctContainerVisible = true"
-            >
+            <el-button type="primary" @click="ctContainerVisible = true">
               {{ $t("buttons.add") }}
             </el-button>
-            <el-button type="info" size="small" @click="onPreview">
-              预览
-            </el-button>
+            <el-button type="success" @click="onPreview"> 预览 </el-button>
           </div>
           <div class="ym-border-basic" style="border-bottom: 0">
             <el-table :data="tableData" style="width: 100%">
@@ -149,8 +142,8 @@
               <el-table-column prop="wdget" label="Wdget" />
               <el-table-column fixed="right" label="Operations" width="120">
                 <template #default>
-                  <el-button type="text" size="small">Detail</el-button>
-                  <el-button type="text" size="small">Edit</el-button>
+                  <el-button type="primary" text>Detail</el-button>
+                  <el-button type="primary" text>Edit</el-button>
                 </template>
               </el-table-column>
             </el-table>
@@ -165,10 +158,10 @@
             />
           </div>
           <div class="ym-padding-default ym-flex ym-flex-jc-end">
-            <el-button size="small" @click="$emit('cancel')">
+            <el-button @click="$emit('cancel')">
               {{ $t("buttons.cancel") }}
             </el-button>
-            <el-button size="small" type="primary" @click="saveBasicInfo">{{
+            <el-button type="primary" @click="saveBasicInfo">{{
               $t("buttons.save")
             }}</el-button>
           </div>
@@ -199,7 +192,7 @@
 import { defineComponent, reactive, ref } from "vue";
 import { useBuCodeList, useTemplateTypeList } from "./../useData";
 import { useTableData } from "./../utils";
-import CreateComponent from "./create-component";
+import CreateComponent from "./create-component.vue";
 export default defineComponent({
   components: {
     CreateComponent
@@ -300,7 +293,7 @@ export default defineComponent({
         required: 1,
         editable: 1,
         value: "",
-        newLine: false
+        newLine: true
       },
       {
         category: "Info",
@@ -324,12 +317,32 @@ export default defineComponent({
       },
       {
         category: "Info",
-        wdget: "Checkbox",
-        label: "Type",
-        dropdown_table_value: "a,b",
+        wdget: "DateTimeRange",
+        label: "DateTimeRange",
+        dropdown_table_value: "yes,no",
         required: 1,
         editable: 1,
-        value: [],
+        value: "",
+        newLine: true
+      },
+      {
+        category: "Info",
+        wdget: "TimePicker",
+        label: "TimePicker",
+        dropdown_table_value: "yes,no",
+        required: 1,
+        editable: 1,
+        value: "",
+        newLine: true
+      },
+      {
+        category: "Info",
+        wdget: "Checkbox",
+        label: "Type",
+        dropdown_table_value: "选项一,选项二,选项三",
+        required: 1,
+        editable: 1,
+        value: ["选项二"],
         newLine: true
       },
       {
@@ -346,10 +359,20 @@ export default defineComponent({
         category: "Info",
         wdget: "Radio",
         label: "Radio",
-        dropdown_table_value: "a,b,c",
+        dropdown_table_value: "选项一,选项二,选项三",
         required: 1,
         editable: 1,
-        value: "",
+        value: "选项二",
+        newLine: true
+      },
+      {
+        category: "Info",
+        wdget: "RadioButton",
+        label: "RadioButton",
+        dropdown_table_value: "选项一,选项二,选项三",
+        required: 1,
+        editable: 1,
+        value: "选项四",
         newLine: true
       },
       {
@@ -411,7 +434,10 @@ export default defineComponent({
       const newArr = [];
       tableData.forEach(item => {
         if (!newArr.length) {
-          const firstCategory = {};
+          const firstCategory: { category: string; labelList: any[] } = {
+            category: "",
+            labelList: []
+          };
           newArr.push(firstCategory);
           firstCategory.category = item.category;
           firstCategory.labelList = [item];
@@ -423,7 +449,10 @@ export default defineComponent({
         );
 
         if (index === -1) {
-          const itemCategory = {};
+          const itemCategory: { category: string; labelList: any[] } = {
+            category: "",
+            labelList: []
+          };
           newArr.push(itemCategory);
           itemCategory.category = item.category;
           itemCategory.labelList = [item];
