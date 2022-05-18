@@ -46,6 +46,14 @@ const routesData = [
         type: 1,
         showLink: true,
         i18n: true
+      },
+      {
+        title: "menus.templateManagement",
+        path: "/system/table/index",
+        name: "system-table",
+        type: 1,
+        showLink: true,
+        i18n: true
       }
     ]
   },

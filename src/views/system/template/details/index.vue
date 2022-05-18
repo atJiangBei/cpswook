@@ -142,8 +142,8 @@
               <el-table-column prop="wdget" label="Wdget" />
               <el-table-column fixed="right" label="Operations" width="120">
                 <template #default>
-                  <el-button type="text" size="small">Detail</el-button>
-                  <el-button type="text" size="small">Edit</el-button>
+                  <el-button type="primary" text>Detail</el-button>
+                  <el-button type="primary" text>Edit</el-button>
                 </template>
               </el-table-column>
             </el-table>

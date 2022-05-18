@@ -47,7 +47,7 @@ export default defineComponent({
       console.log("render");
       return (
         <div class="ym-render-template">
-          <YmForm labelWidth="120px" ref={el => (formRef.value = el)}>
+          <YmForm labelWidth="130px" ref={el => (formRef.value = el)}>
             {previewData.map((item, index) => {
               return (
                 <div class="ym-render-template-item">

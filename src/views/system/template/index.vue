@@ -70,8 +70,8 @@
         <el-table-column prop="creater_useridAS" label="creater_useridAS" />
         <el-table-column fixed="right" label="Operations" width="120">
           <template #default>
-            <el-button type="text" size="small">Detail</el-button>
-            <el-button type="text" size="small">Edit</el-button>
+            <el-button type="primary" text size="small">Detail</el-button>
+            <el-button type="primary" text size="small">Edit</el-button>
           </template>
         </el-table-column>
       </el-table>
