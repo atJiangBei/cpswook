@@ -5,6 +5,17 @@
         <h2 class="ym-title-h2">{{ $t("aggrescan.whichToMutate") }}</h2>
         <h3 class="ym-title-h3">Chain A</h3>
         <Chain @choose-residue="mutateDialogVisible = true"></Chain>
+        <InfoTip
+          class="ym-margin-large-y"
+          :style="{
+            backgroundImage:
+              'linear-gradient(to bottom, #fcf8e3 0, #f8efc0 100%)'
+          }"
+          :icon="Warning"
+          icon-color="#8a6d3b"
+          color="#8a6d3b"
+          >{{ $t("aggrescan.chooseSubstitution") }}</InfoTip
+        >
       </el-col>
       <el-col :span="8">
         <ResidueImg></ResidueImg>
@@ -31,10 +42,10 @@
       v-model="mutateDialogVisible"
       :title="$t('aggrescan.mutateResidue')"
     >
-      <el-row>
+      <el-row :gutter="20">
         <el-col :span="8">
           <h2 class="ym-title-h2 ym-color-333">From:</h2>
-          <ResidueImg></ResidueImg>
+          <ResidueImg align="left"></ResidueImg>
         </el-col>
         <el-col :span="16">
           <h2 class="ym-title-h2 ym-color-333">To:</h2>
@@ -64,6 +75,8 @@ import ResidueImg from "./_components/ResidueImg.vue";
 import ResidueItem from "./_components/ResidueItem.vue";
 import { RefreshLeft } from "@element-plus/icons-vue";
 import SaveSVG from "/@/assets/svg/save.svg?component";
+import InfoTip from "/@/components/info-tip/index.vue";
+import { Warning } from "@element-plus/icons-vue";
 
 const mutateDialogVisible = ref(false);
 

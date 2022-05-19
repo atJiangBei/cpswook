@@ -24,5 +24,6 @@ export default {
   saveAndSubmit: "Save changes and submit",
   undo: "Undo",
   replacedResidues: "Replaced residues",
-  mutateResidue: "Mutate residue"
+  mutateResidue: "Mutate residue",
+  chooseSubstitution: "Click on the residue symbol to choose substitution."
 };

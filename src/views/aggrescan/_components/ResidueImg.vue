@@ -1,12 +1,11 @@
 <template>
-  <div class="residue-img">
+  <div class="residue-img" :class="{ 'align-left': align === 'left' }">
     <div class="name-wrap">
       <span class="name-abbr ym-color-333">GLN</span>
       <span class="name-full">glutamine</span>
     </div>
     <div class="img-wrap">
-      <!-- <img :src="GluSvg" alt="residue" /> -->
-      <img :src="DogImg" alt="dog" />
+      <img src="./glu.svg" alt="residue" />
       <!-- <GluSvg width="100%"></GluSvg> -->
     </div>
     <div class="index-wrap">
@@ -23,8 +22,11 @@ export default {
 
 <script setup lang="ts">
 import { ref } from "vue";
-// import GluSvg from "./glu.svg?url";
-import DogImg from "./dog.webp?url";
+
+interface Props {
+  align?: "left" | "right";
+}
+defineProps<Props>();
 </script>
 
 <style lang="scss" scoped>
@@ -32,6 +34,9 @@ import DogImg from "./dog.webp?url";
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  &.align-left {
+    align-items: flex-start;
+  }
   .name-abbr {
     font-size: var(--ym-font-size-lg);
     font-weight: bold;
