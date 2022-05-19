@@ -40,6 +40,7 @@ export default {
   menuManagement: "Menu management",
   bioComponent: "Bio component",
   sequence: "Sequence",
+  protein: "Protein",
   nebula: "nebula",
   bpmn: "bpmn",
   bpmnList: "Bpmn List",

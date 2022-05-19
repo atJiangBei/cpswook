@@ -42,6 +42,7 @@ export default {
   menuManagement: "菜单管理",
   bioComponent: "生物组件",
   sequence: "基因序列",
+  protein: "蛋白质",
   nebula: "nebula",
   bpmn: "Bpmn",
   bpmnList: "Bpmn List",

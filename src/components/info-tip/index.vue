@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="info-tip ym-flex ym-flex-ai-center"
-    :style="{ backgroundColor: bgColor, color }"
-  >
+  <div class="info-tip ym-flex ym-flex-ai-center">
     <el-icon :color="iconColor" class="icon">
       <component :is="icon"></component>
     </el-icon>
@@ -22,7 +19,7 @@ interface Props {
   bgColor?: string;
   color?: string;
 }
-defineProps<Props>();
+const props = defineProps<Props>();
 </script>
 
 <style lang="scss" scoped>
@@ -31,6 +28,8 @@ defineProps<Props>();
   --ym-info-tip-border-radius: 5px;
   padding: var(--ym-info-tip-padding);
   border-radius: var(--ym-info-tip-border-radius);
+  background-color: v-bind("props.bgColor");
+  color: v-bind("props.color");
   .icon {
     margin-right: 5px;
   }
