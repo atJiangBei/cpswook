@@ -9,11 +9,13 @@ import {
 import { router } from "./index";
 import { loadEnv } from "../../build";
 import Layout from "/@/layout/index.vue";
+import Err404 from "/@/views/error/404.vue";
 import { useTimeoutFn } from "@vueuse/core";
 import { RouteConfigs } from "/@/layout/types";
 import { usePermissionStoreHook } from "/@/store/modules/permission";
 // https://cn.vitejs.dev/guide/features.html#glob-import
 const modulesRoutes = import.meta.glob("/src/views/**/*.{vue,tsx}");
+console.log(modulesRoutes);
 // 动态路由
 import { getAsyncRoutes } from "/@/api/routes";
 import { getSyncRoutes } from "/@/api/global";
@@ -230,7 +232,13 @@ const handleAliveRoute = (matched: RouteRecordNormalized[], mode?: string) => {
   }
 };
 const loadRouteComponent = (viewPath: string) => {
-  return () => import(/* @vite-ignore */ `/@/views${viewPath}`);
+  const modulesRoutesKeys = Object.keys(modulesRoutes);
+  const index = modulesRoutesKeys.findIndex(ev => ev.includes(viewPath));
+  if (index > -1) {
+    return modulesRoutes[modulesRoutesKeys[index]];
+  }
+
+  //return () => import(/* @vite-ignore */ `./../views${viewPath}.vue`);
 };
 // 过滤后端传来的动态路由 重新生成规范路由
 const transformChildren = routes => {
