@@ -24,6 +24,18 @@ export default {
   saveAndSubmit: "Save changes and submit",
   undo: "Undo",
   replacedResidues: "Replaced residues",
+  residue: "Residue",
   mutateResidue: "Mutate residue",
-  chooseSubstitution: "Click on the residue symbol to choose substitution."
+  chooseSubstitution: "Click on the residue symbol to choose substitution.",
+  whichToExclude: "Which residues to exclude from the automatic mutation?",
+  clickToPrevent: "Click on the residue symbol to prevent it from being mutated.",
+  excludedResidues: "Excluded residues",
+  addiTionalOptions: "Additional options",
+  aggrescanAutoMutate: "Automated mutations",
+  summary: "Summary for all the mutants can be found in this",
+  csvFile: "CSV file",
+  mutant: "Mutant",
+  effect: "Energetic effect",
+  score: "Score comparison",
+  maxNumberOfMutatedResidues: "Maximum number of mutated residues"
 };

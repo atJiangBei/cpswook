@@ -26,6 +26,10 @@
   overflow: auto;
 }
 
+.ym-overflow-y-auto {
+  overflow-y: auto;
+}
+
 .ym-scrollbar-basic {
   &::-webkit-scrollbar {
     width: 5px;

@@ -44,7 +44,7 @@ const getConfig = (key?: string): ServerConfigs => {
 };
 
 // 获取项目动态全局配置
-export const getServerConfig = async (app: App): Promise<undefined> => {
+const getServerConfig = async (app: App): Promise<undefined> => {
   app.config.globalProperties.$config = getConfig();
   return axios({
     baseURL: "",
@@ -69,4 +69,4 @@ export const getServerConfig = async (app: App): Promise<undefined> => {
     });
 };
 
-export { getConfig, setConfig };
+export { getConfig, setConfig, getServerConfig };

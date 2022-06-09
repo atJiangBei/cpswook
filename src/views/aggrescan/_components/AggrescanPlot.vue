@@ -3,7 +3,14 @@
     <el-row class="ym-margin-default-y" align="middle">
       <el-col :span="12">
         <FieldItem :label="$t('aggrescan.showChain')">
-          <el-select></el-select>
+          <el-select v-model="curChain">
+            <el-option
+              v-for="item in chains"
+              :key="item"
+              :label="item"
+              :value="item"
+            ></el-option>
+          </el-select>
         </FieldItem>
       </el-col>
       <el-col :span="12">
@@ -27,8 +34,8 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { ref, provide } from "vue";
-import FieldItem from "../../components/FieldItem.vue";
+import { ref, provide, toRef, watchEffect, computed } from "vue";
+import FieldItem from "/@/components/field-item/index.vue";
 import { use } from "echarts/core";
 import { CanvasRenderer } from "echarts/renderers";
 import { LineChart } from "echarts/charts";
@@ -42,7 +49,9 @@ import {
   MarkPointComponent
 } from "echarts/components";
 import { UniversalTransition } from "echarts/features";
-import VChart, { THEME_KEY } from "vue-echarts";
+import VChart from "vue-echarts";
+import { useChains } from "../index";
+import type { Chains } from "../index";
 
 use([
   CanvasRenderer,
@@ -58,81 +67,56 @@ use([
 ]);
 
 const checked = ref(false);
-provide(THEME_KEY, "dark");
+
+interface Props {
+  data?: Chains;
+}
+
+const props = defineProps<Props>();
+
+const { getConvertedChainScores, chains } = useChains(toRef(props, "data"));
+
+const curChain = ref("");
+
+watchEffect(() => {
+  curChain.value = chains.value[0];
+});
+
+const scores = getConvertedChainScores(curChain, checked);
+
+const curChainName = computed(() => {
+  return `Chain ${curChain.value}`;
+});
+
 const option = ref({
   title: {
-    text: "Temperature Change in the Coming Week"
+    text: "Aggrescan3D profile"
   },
   tooltip: {
-    trigger: "axis"
-  },
-  legend: {},
-  toolbox: {
-    show: true,
-    feature: {
-      dataZoom: {
-        yAxisIndex: "none"
-      },
-      dataView: { readOnly: false },
-      magicType: { type: ["line", "bar"] },
-      restore: {},
-      saveAsImage: {}
+    trigger: "axis",
+    formatter: params => {
+      const param = params[0];
+      const content = [
+        `<tr><td>Score</td><td>${param.data[1]}</td></tr>`,
+        `<tr><td>Residue Index</td><td>${param.data[0]}</td></tr>`
+      ].join("");
+      return `<table class="tooltip"><tr><td colspan="2">${param.seriesName}</td></tr>${content}</table>`;
     }
   },
+  legend: {},
   xAxis: {
-    type: "category",
-    boundaryGap: false,
-    data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+    type: "value",
+    name: "Residue"
   },
   yAxis: {
     type: "value",
-    axisLabel: {
-      formatter: "{value} °C"
-    }
+    name: "Score"
   },
   series: [
     {
-      name: "Highest",
+      name: curChainName,
       type: "line",
-      data: [10, 11, 13, 11, 12, 12, 9],
-      markPoint: {
-        data: [
-          { type: "max", name: "Max" },
-          { type: "min", name: "Min" }
-        ]
-      },
-      markLine: {
-        data: [{ type: "average", name: "Avg" }]
-      }
-    },
-    {
-      name: "Lowest",
-      type: "line",
-      data: [1, -2, 2, 5, 3, 2, 0],
-      markPoint: {
-        data: [{ name: "周最低", value: -2, xAxis: 1, yAxis: -1.5 }]
-      },
-      markLine: {
-        data: [
-          { type: "average", name: "Avg" },
-          [
-            {
-              symbol: "none",
-              x: "90%",
-              yAxis: "max"
-            },
-            {
-              symbol: "circle",
-              label: {
-                position: "start",
-                formatter: "Max"
-              },
-              type: "max",
-              name: "最高点"
-            }
-          ]
-        ]
-      }
+      data: scores
     }
   ]
 });
@@ -140,9 +124,18 @@ const option = ref({
 
 <style lang="scss" scoped>
 .aggrescan-plot {
+  --border1px: 1px solid #333;
   .chart {
     width: 100%;
     height: 400px;
+  }
+  :deep(.tooltip) {
+    // border: var(--border1px);
+    // border-collapse: collapse;
+    th,
+    td {
+      // border: var(--border1px);
+    }
   }
 }
 </style>

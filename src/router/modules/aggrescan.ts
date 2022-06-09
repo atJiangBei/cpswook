@@ -1,7 +1,7 @@
 import { $t } from "/@/plugins/i18n";
 import Layout from "/@/layout/index.vue";
 
-const bpmnRouter = {
+const aggrescanRouter = {
   path: "/aggrescan",
   name: "aggrescan",
   component: Layout,
@@ -40,10 +40,20 @@ const bpmnRouter = {
       meta: {
         title: $t("menus.aggrescanMutate"),
         i18n: true,
-        showLink: true
+        showLink: false
+      }
+    },
+    {
+      path: "/aggrescan/auto-mutate",
+      name: "aggrescanAutoMutate",
+      component: () => import("/@/views/aggrescan/auto-mutate.vue"),
+      meta: {
+        title: $t("menus.aggrescanAutoMutate"),
+        i18n: true,
+        showLink: false
       }
     }
   ]
 };
 
-export default bpmnRouter;
+export default aggrescanRouter;

@@ -37,7 +37,9 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
     VITE_LEGACY,
     VITE_PUBLIC_PATH,
     VITE_PROXY_DOMAIN,
-    VITE_PROXY_DOMAIN_REAL
+    VITE_PROXY_DOMAIN_REAL,
+    VITE_PROXY_DOMAIN_AGGRESCAN,
+    VITE_PROXY_DOMAIN_REAL_AGGRESCAN
   } = warpperEnv(loadEnv(mode, root));
   const prodMock = true;
   return {
@@ -80,6 +82,13 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
                 // ws: true,
                 changeOrigin: true,
                 rewrite: (path: string) => regExps(path, VITE_PROXY_DOMAIN)
+              },
+              [VITE_PROXY_DOMAIN_AGGRESCAN]: {
+                target: VITE_PROXY_DOMAIN_REAL_AGGRESCAN,
+                // ws: true,
+                changeOrigin: true,
+                rewrite: (path: string) =>
+                  regExps(path, VITE_PROXY_DOMAIN_AGGRESCAN)
               }
             }
           : null

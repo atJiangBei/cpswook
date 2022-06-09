@@ -1,11 +1,11 @@
 <template>
   <div class="residue-item ym-flex ym-flex-ai-center">
-    <div class="img-wrap">
+    <!-- <div class="img-wrap">
       <ALASvg></ALASvg>
-    </div>
+    </div> -->
     <div class="name-wrap">
-      <span class="name-abbr ym-color-333">GLN</span>
-      <span class="name-full">glutamine</span>
+      <span class="name-abbr ym-color-333">{{ residue.name }}</span>
+      <span class="name-full">{{ residue.fullName }}</span>
     </div>
   </div>
 </template>
@@ -18,7 +18,16 @@ export default {
 
 <script setup lang="ts">
 import { ref } from "vue";
-import ALASvg from "./ALA.svg";
+
+export interface ResidueItem {
+  letter: string;
+  name: string;
+  fullName: string;
+}
+interface Props {
+  residue: ResidueItem;
+}
+const props = defineProps<Props>();
 </script>
 
 <style lang="scss" scoped>

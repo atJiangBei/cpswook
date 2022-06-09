@@ -1,4 +1,4 @@
-import Axios, { AxiosInstance, AxiosRequestConfig } from "axios";
+import Axios, { AxiosInstance, AxiosRequestConfig, AxiosStatic } from "axios";
 import {
   resultType,
   PureHttpError,
@@ -39,7 +39,9 @@ class PureHttp {
     this.httpInterceptorsResponse();
   }
   // 初始化配置对象
-  private static initConfig: PureHttpRequestConfig = {};
+  private static initConfig: PureHttpRequestConfig = {
+    useNProgress: true
+  };
 
   // 保存当前Axios实例对象
   private static axiosInstance: AxiosInstance = Axios.create(defaultConfig);
@@ -50,7 +52,9 @@ class PureHttp {
       (config: PureHttpRequestConfig) => {
         const $config = config;
         // 开启进度条动画
-        NProgress.start();
+        if (PureHttp.initConfig.useNProgress) {
+          NProgress.start();
+        }
         // 优先判断post/get等方法是否传入回掉，否则执行初始化设置等回掉
         if (typeof config.beforeRequestCallback === "function") {
           config.beforeRequestCallback($config);
@@ -177,4 +181,6 @@ class PureHttp {
   }
 }
 
-export const http = new PureHttp();
+const http = new PureHttp();
+
+export { http };

@@ -1,15 +1,14 @@
 <template>
   <div class="residue-img" :class="{ 'align-left': align === 'left' }">
     <div class="name-wrap">
-      <span class="name-abbr ym-color-333">GLN</span>
-      <span class="name-full">glutamine</span>
+      <span class="name-abbr ym-color-333">{{ residue.name }}</span>
+      <span class="name-full">{{ residue.fullName }}</span>
     </div>
-    <div class="img-wrap">
+    <!-- <div class="img-wrap">
       <img src="./glu.svg" alt="residue" />
-      <!-- <GluSvg width="100%"></GluSvg> -->
-    </div>
+    </div> -->
     <div class="index-wrap">
-      <span class="index">residue index: 49</span>
+      <span class="index">residue index: {{ residue.index }}</span>
     </div>
   </div>
 </template>
@@ -23,10 +22,17 @@ export default {
 <script setup lang="ts">
 import { ref } from "vue";
 
+export interface Residue {
+  name: string;
+  fullName: string;
+  index: string | number;
+  letter: string;
+}
 interface Props {
   align?: "left" | "right";
+  residue: Residue;
 }
-defineProps<Props>();
+const props = defineProps<Props>();
 </script>
 
 <style lang="scss" scoped>
