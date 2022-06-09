@@ -26,7 +26,8 @@ const alias: Record<string, string> = {
   "/@": pathResolve("src"),
   "@build": pathResolve("build"),
   //解决开发环境下的警告
-  "vue-i18n": "vue-i18n/dist/vue-i18n.cjs.js"
+  "vue-i18n": "vue-i18n/dist/vue-i18n.cjs.js",
+  "seqviz-umd": "seqviz/dist/seqviz.min.js"
 };
 const extensions = [".mjs", ".js", ".ts", ".jsx", ".tsx", ".json", ".vue"];
 
@@ -36,7 +37,9 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
     VITE_LEGACY,
     VITE_PUBLIC_PATH,
     VITE_PROXY_DOMAIN,
-    VITE_PROXY_DOMAIN_REAL
+    VITE_PROXY_DOMAIN_REAL,
+    VITE_PROXY_DOMAIN_AGGRESCAN,
+    VITE_PROXY_DOMAIN_REAL_AGGRESCAN
   } = warpperEnv(loadEnv(mode, root));
   const prodMock = true;
   return {
@@ -79,6 +82,13 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
                 // ws: true,
                 changeOrigin: true,
                 rewrite: (path: string) => regExps(path, VITE_PROXY_DOMAIN)
+              },
+              [VITE_PROXY_DOMAIN_AGGRESCAN]: {
+                target: VITE_PROXY_DOMAIN_REAL_AGGRESCAN,
+                // ws: true,
+                changeOrigin: true,
+                rewrite: (path: string) =>
+                  regExps(path, VITE_PROXY_DOMAIN_AGGRESCAN)
               }
             }
           : null

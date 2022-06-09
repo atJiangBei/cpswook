@@ -27,5 +27,7 @@ export default {
   delete: "删除",
   search: "搜索",
   reset: "重置",
+  submit: "提交",
+  browse: "Browse",
   query: "查询"
 };

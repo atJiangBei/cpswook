@@ -26,6 +26,9 @@ module.exports = {
     ForDataType: "readonly",
     ComponentRoutes: "readonly",
 
+    // 基因序列可视化
+    SeqViz: "readonly",
+
     // script setup
     defineProps: "readonly",
     defineEmits: "readonly",

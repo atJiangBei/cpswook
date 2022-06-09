@@ -25,6 +25,7 @@ export interface PureHttpResoponse extends AxiosResponse {
 export interface PureHttpRequestConfig extends AxiosRequestConfig {
   beforeRequestCallback?: (request: PureHttpRequestConfig) => void;
   beforeResponseCallback?: (response: PureHttpResoponse) => void;
+  useNProgress?: boolean;
 }
 
 export default class PureHttp {
