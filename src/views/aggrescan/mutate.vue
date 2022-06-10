@@ -92,7 +92,6 @@ import SaveSVG from "/@/assets/svg/save.svg?component";
 import InfoTip from "/@/components/info-tip/index.vue";
 import { Warning } from "@element-plus/icons-vue";
 import {
-  getSeq,
   requestForward,
   getResidues,
   analysisManualMutate
@@ -164,19 +163,19 @@ const onSave = () => {
 };
 
 const queryData = async () => {
-  const mutatePromise = requestForward({
-    mutate: JSON.stringify({
-      request_type: "mutate",
-      pdb: "/data/xiao_cong/develop/aggrescan3d/data/109_ABlooper.pdb",
-      chain: "",
-      dis
-    })
-  });
-  try {
-    await mutatePromise;
-  } catch (err) {
-    console.log(err);
-  }
+  // const mutatePromise = requestForward({
+  //   mutate: JSON.stringify({
+  //     request_type: "mutate",
+  //     pdb: "/data/xiao_cong/develop/aggrescan3d/data/109_ABlooper.pdb",
+  //     chain: "",
+  //     dis
+  //   })
+  // });
+  // try {
+  //   await mutatePromise;
+  // } catch (err) {
+  //   console.log(err);
+  // }
 };
 queryData();
 </script>

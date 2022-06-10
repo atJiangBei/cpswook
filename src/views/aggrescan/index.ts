@@ -51,10 +51,6 @@ const useSeqs = params => {
   getSeq({
     pdb: "/data/xiao_cong/develop/aggrescan3d/data/109_ABlooper.pdb",
     chain: ""
-    // json: JSON.stringify({
-    //   pdb: "/data/xiao_cong/develop/aggrescan3d/data/109_ABlooper.pdb",
-    //   chain: ""
-    // })
   }).then(res => {
     seqs.value = res;
   });

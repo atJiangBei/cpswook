@@ -36,7 +36,7 @@ const res = ref({
 });
 
 const {
-  query: { dis, usefoldx }
+  query: { uid }
 } = useRoute();
 
 const handleClick = (tab: TabsPaneContext, event: Event) => {
@@ -66,15 +66,15 @@ const poll = new Poll({
 // });
 
 const queryData = async () => {
-  res.value = await analysisWithoutMutate({
-    json: JSON.stringify({
-      pid: "109",
-      pdb: "/data/xiao_cong/develop/aggrescan3d/data/109_ABlooper.pdb",
-      chain: "",
-      dis,
-      usefoldx
-    })
-  });
+  // res.value = await analysisWithoutMutate({
+  //   json: JSON.stringify({
+  //     pid: "109",
+  //     pdb: "/data/xiao_cong/develop/aggrescan3d/data/109_ABlooper.pdb",
+  //     chain: "",
+  //     dis,
+  //     usefoldx
+  //   })
+  // });
 };
 queryData();
 </script>

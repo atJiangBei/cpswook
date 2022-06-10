@@ -6,12 +6,13 @@ const { VITE_PROXY_DOMAIN_AGGRESCAN } = loadEnv();
 
 type Data = object | string;
 
-export const getSeq = (data?: Data) => {
+interface GetSeqData {
+  pdb: string;
+  chain: string;
+}
+
+export const getSeq = (data?: GetSeqData) => {
   return http.request("post", "/get_seq", {
-    // headers: {
-    //   "content-type": "application/x-www-form-urlencoded"
-    // },
-    // data: qs.stringify(data),
     data,
     baseURL: VITE_PROXY_DOMAIN_AGGRESCAN
   });
@@ -50,12 +51,19 @@ export const analysisAutoMutate = (data?: Data) => {
   });
 };
 
-export const requestForward = (data?: Data) => {
+type RequestType = "origin" | "mutate" | "auto_mutation";
+
+interface RequestForwardData {
+  request_type: RequestType;
+  pdb: string;
+  chain: string;
+  dis: string | number;
+  usefoldx: string;
+}
+
+export const requestForward = (data?: RequestForwardData) => {
   return http.request("post", "/request_forward", {
-    headers: {
-      "content-type": "application/x-www-form-urlencoded"
-    },
-    data: qs.stringify(data),
+    data,
     baseURL: VITE_PROXY_DOMAIN_AGGRESCAN
   });
 };

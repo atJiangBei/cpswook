@@ -70,7 +70,7 @@
 import { ref, reactive } from "vue";
 import type { FormInstance, FormRules } from "element-plus";
 import { useRouter } from "vue-router";
-import { getSeq } from "/@/api/aggrescan";
+import { getSeq, requestForward } from "/@/api/aggrescan";
 import { AnalysisMode, Distance, FoldX } from "/@/consts/aggrescan";
 import { useUploadApi } from "./index";
 
@@ -89,15 +89,24 @@ const analysisForm = reactive({
 // const distance = ref("5A");
 // const foldX = ref(1);
 
-const onSubmit = () => {
+const onSubmit = async () => {
+  const { dis, usefoldx } = analysisForm;
   if (analysisForm.mode === AnalysisMode.WithoutMutation) {
-    router.push({
-      name: "aggrescanResult",
-      query: {
-        dis: analysisForm.dis,
-        usefoldx: analysisForm.usefoldx
-      }
+    const { code, data: uid, msg } = await requestForward({
+      request_type: "origin",
+      chain: "",
+      pdb: "/data/xiao_cong/develop/aggrescan3d/data/109_ABlooper.pdb",
+      dis,
+      usefoldx
     });
+    if (+code === 200) {
+      router.push({
+        name: "aggrescanResult",
+        query: {
+          uid
+        }
+      });
+    }
   } else if (analysisForm.mode === AnalysisMode.ManualMutation) {
     router.push({
       name: "aggrescanMutate",
