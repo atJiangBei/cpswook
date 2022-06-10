@@ -107,7 +107,7 @@ import { useRoles, useRoutes } from "./useData";
 import { generateTree, deepClone } from "./utils";
 
 const [roles] = useRoles([], function load(value) {
-  console.log(roles.value);
+  console.log(roles);
 });
 
 const searchFormRef = ref();
@@ -129,11 +129,6 @@ const roleFormRules = reactive({
   name: {
     required: true,
     message: "Role Name is required",
-    trigger: "blur"
-  },
-  rolekey: {
-    required: true,
-    message: "Role Key is required",
     trigger: "blur"
   },
   rolekey: {

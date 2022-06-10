@@ -105,7 +105,6 @@ import TemplateDetails from "./details/index.vue";
 import { useBuCodeList, useTemplateTypeList } from "./useData";
 import { http } from "/@/utils/http";
 
-console.log(http);
 const searchFormRef = ref();
 
 console.log(previewData);
